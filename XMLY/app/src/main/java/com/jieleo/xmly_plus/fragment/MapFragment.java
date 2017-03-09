@@ -3,6 +3,8 @@ package com.jieleo.xmly_plus.fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.jieleo.xmly_plus.R;
+
 /**
  * Created by yuyongjie on 17/3/9.
  */
@@ -11,7 +13,7 @@ import android.view.View;
 public class MapFragment extends BaseFragment {
     @Override
     protected int bindLayout() {
-        return 0;
+        return R.layout.fragment_map;
     }
 
     @Override
