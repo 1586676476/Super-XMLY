@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jieleo.xmly_plus.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RadioGroup
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rg_bottom_aty_main"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rd_btn_home"
+            android:text="首页"
+            android:drawableTop="@drawable/home_radio_btn_selector"
+            style="@style/activity_main_radio_btn" />
+        <RadioButton
+            android:id="@+id/rd_btn_map"
+            android:text="地图"
+            android:drawableTop="@drawable/map_radio_btn_selector"
+            style="@style/activity_main_radio_btn" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+        <RadioButton
+            android:id="@+id/rd_btn_discover"
+            android:text="发现"
+            android:drawableTop="@drawable/discover_radio_btn_selector"
+            style="@style/activity_main_radio_btn"/>
+        <RadioButton
+            android:id="@+id/rd_btn_person"
+            android:text="我的"
+            android:drawableTop="@drawable/person_radio_btn_selector"
+            style="@style/activity_main_radio_btn"/>
+
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/fa_btn_aty_main"
+        android:layout_width="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/rec_btn_preview_play2"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@android:color/white"
+        android:background="@android:color/transparent"
+        android:layout_height="50dp" />
+
+</RelativeLayout>
