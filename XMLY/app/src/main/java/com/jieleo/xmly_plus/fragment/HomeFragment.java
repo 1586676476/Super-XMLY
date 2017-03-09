@@ -1,6 +1,8 @@
 package com.jieleo.xmly_plus.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.jieleo.xmly_plus.R;
@@ -11,6 +13,8 @@ import com.jieleo.xmly_plus.R;
 
 
 public class HomeFragment extends BaseFragment {
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected int bindLayout() {
         return R.layout.fragment_home;
@@ -18,7 +22,8 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-
+        tabLayout = (TabLayout) view.findViewById(R.id.ty_fragment_home);
+        viewPager = (ViewPager) view.findViewById(R.id.vp_fragment_home);
     }
 
     @Override
