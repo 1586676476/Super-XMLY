@@ -31,8 +31,6 @@ public abstract class BaseFragment extends Fragment {
         bindEvent();
     }
 
-
-
     protected abstract int bindLayout();
 
     protected abstract void initView(View view, Bundle savedInstanceState);
