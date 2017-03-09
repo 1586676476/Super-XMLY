@@ -5,6 +5,7 @@
     android:background="#B9B9A9"
     android:orientation="vertical">
 
+
     <include
         android:id="@+id/discover_include"
         layout="@layout/merge" />
@@ -15,3 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp" />
 </RelativeLayout>
+
+
+
