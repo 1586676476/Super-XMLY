@@ -22,6 +22,9 @@ public class TabWordsBean implements Parcelable{
     private String msg;
     private TabsBean tabs;
 
+    public TabWordsBean() {
+    }
+
     protected TabWordsBean(Parcel in) {
         ret = in.readInt();
         msg = in.readString();
