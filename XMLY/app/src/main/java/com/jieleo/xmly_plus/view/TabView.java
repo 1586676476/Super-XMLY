@@ -5,6 +5,6 @@ package com.jieleo.xmly_plus.view;
  */
 
 
-public interface IView {
+public interface TabView {
     String getTabUrl();
 }
