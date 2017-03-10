@@ -2,6 +2,7 @@ package com.jieleo.xmly_plus.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
 
