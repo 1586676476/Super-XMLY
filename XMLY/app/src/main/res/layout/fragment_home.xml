@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <TextView
             android:id="@+id/tv_search_fragment_home"
@@ -46,8 +47,14 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/ty_fragment_home"
         android:layout_width="match_parent"
+        app:tabSelectedTextColor="#f88"
+        app:tabIndicatorColor="#f88"
+        app:tabIndicatorHeight="1dp"
+        android:layout_marginTop="10dp"
+        app:tabGravity="fill"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearanceInverse"
         android:layout_below="@id/tv_search_fragment_home"
-        android:layout_height="wrap_content">
+        android:layout_height="30dp">
 
     </android.support.design.widget.TabLayout>
 

@@ -58,6 +58,7 @@ public class HomeFragment extends BaseFragment implements TabView {
         viewPager.setAdapter(homeFragmentPageAdapter);
         tabLayout.setupWithViewPager(viewPager, true);
         homeFragmentPageAdapter.setFragments(fragments);
+        //设置tabLayout的url
         tabPresenter.getTabWord(WebSite.TABWRODS);
 
     }
