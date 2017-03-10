@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/discover_recycleView_two_leftImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/discover_recycleView_two_leftText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/discover_recycleView_two_leftImage"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:text="付费精品" />
+
+    <ImageView
+        android:id="@+id/two_imageView"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/arrow_gray_right" />
+
+    <ImageView
+        android:id="@+id/discover_recycleView_two_rightImage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toLeftOf="@id/two_imageView"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/discover_recycleView_two_rightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/discover_recycleView_two_rightImage"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="10dp"
+        android:text="雷明教你读懂BOSS的心"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/discover_recycleView_two_leftImageTwo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/discover_recycleView_two_leftImage"
+        />
+
+    <TextView
+        android:id="@+id/discover_recycleView_two_leftTextTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/discover_recycleView_two_leftImage"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:text="付费精品"
+        android:layout_below="@id/discover_recycleView_two_leftImage"/>
+
+    <ImageView
+        android:id="@+id/two_imageViewTwo"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/arrow_gray_right"
+        android:layout_below="@id/discover_recycleView_two_leftImage"/>
+
+    <ImageView
+        android:id="@+id/discover_recycleView_two_rightImageTwo"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toLeftOf="@id/two_imageView"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/discover_recycleView_two_leftImage"
+        />
+    <TextView
+        android:id="@+id/discover_recycleView_two_rightTextTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/discover_recycleView_two_rightImage"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="10dp"
+        android:text="雷明教你读懂BOSS的心"
+        android:textSize="10sp"
+        android:layout_below="@id/discover_recycleView_two_leftImage"/>
+
+
+
+</RelativeLayout>
