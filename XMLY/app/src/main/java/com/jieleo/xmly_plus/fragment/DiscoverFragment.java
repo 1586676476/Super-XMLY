@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.adapter.DisCoverAdapter;
-import com.jieleo.xmly_plus.model.bean.DisCoverBean;
-import com.jieleo.xmly_plus.presenter.DisCoverPresenter;
+import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
+import com.jieleo.xmly_plus.presenter.persenter_discover_page.DisCoverPresenter;
 import com.jieleo.xmly_plus.view.DisCoverView;
 
 /**
