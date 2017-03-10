@@ -2,14 +2,10 @@ package com.jieleo.xmly_plus.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.jieleo.xmly_plus.R;
-import com.jieleo.xmly_plus.model.bean.DisCoverBean;
+import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
 import com.jieleo.xmly_plus.tools.MyViewHolder;
 
 /**

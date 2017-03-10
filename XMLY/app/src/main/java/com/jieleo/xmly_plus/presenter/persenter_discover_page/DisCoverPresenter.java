@@ -1,8 +1,8 @@
-package com.jieleo.xmly_plus.presenter;
+package com.jieleo.xmly_plus.presenter.persenter_discover_page;
 
-import com.jieleo.xmly_plus.model.bean.DisCoverBean;
-import com.jieleo.xmly_plus.model.bean.DisCoverModel;
-import com.jieleo.xmly_plus.model.bean.IDisCoverListener;
+import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
+import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverModel;
+import com.jieleo.xmly_plus.model.bean.model_discover.IDisCoverListener;
 import com.jieleo.xmly_plus.view.DisCoverView;
 
 /**

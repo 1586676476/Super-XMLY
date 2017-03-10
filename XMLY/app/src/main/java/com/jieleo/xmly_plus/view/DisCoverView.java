@@ -1,6 +1,6 @@
 package com.jieleo.xmly_plus.view;
 
-import com.jieleo.xmly_plus.model.bean.DisCoverBean;
+import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
 
 /**
  * Created by dllo on 17/3/10.

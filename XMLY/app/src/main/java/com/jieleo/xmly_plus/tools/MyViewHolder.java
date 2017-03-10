@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 
 /**
  * Created by liuHao on 17/3/10.
@@ -68,5 +69,6 @@ public class MyViewHolder  extends RecyclerView.ViewHolder{
         }
         return this;
     }
+
 
 }
