@@ -10,10 +10,10 @@ import com.jieleo.xmly_plus.R;
  */
 
 
-public class PersonFragment extends BaseFragment {
+public class UserFragment extends BaseFragment {
     @Override
     protected int bindLayout() {
-        return R.layout.fragment_person;
+        return R.layout.fragment_user;
     }
 
     @Override

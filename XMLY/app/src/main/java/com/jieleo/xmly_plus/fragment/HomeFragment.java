@@ -44,6 +44,8 @@ public class HomeFragment extends BaseFragment implements TabView, View.OnClickL
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         searchTv = (TextView) view.findViewById(R.id.tv_search_fragment_home);
+        historyTv = (TextView) view.findViewById(R.id.tv_history_fragment_home);
+        downLoadTv= (TextView) view.findViewById(R.id.tv_download_fragment_home);
         tabLayout = (TabLayout) view.findViewById(R.id.ty_fragment_home);
         viewPager = (ViewPager) view.findViewById(R.id.vp_fragment_home);
         homeFragmentPageAdapter = new HomeFragmentPageAdapter(getChildFragmentManager());

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/rl_top_fragment_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_user_bg_fragment_user"
+                    android:src="@mipmap/user_space_top_bg"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:id="@+id/iv_head_fragment_user"
+                    android:src="@mipmap/myspace_head_img_default"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp" />
+                <TextView
+                    android:id="@+id/tv_user_name_fragment_user"
+                    android:textColor="@color/White"
+                    android:layout_toRightOf="@id/iv_head_fragment_user"
+                    android:layout_alignTop="@id/iv_head_fragment_user"
+                    android:layout_width="100dp"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:text="點擊登錄"
+                    android:layout_height="35dp" />
+                <TextView
+                    android:id="@+id/tv_introduce_fragment_user"
+                    android:layout_alignBottom="@id/iv_head_fragment_user"
+                    android:gravity="center"
+                    android:text="一秒登录，专享个性化服务"
+                    android:textSize="10sp"
+                    android:textColor="@color/White"
+                    android:layout_toRightOf="@id/iv_head_fragment_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+                <ImageView
+                    android:id="@+id/iv_scan_fragment_user"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:src="@mipmap/ic_scan_qr"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/arrow_12_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:background="#a1000000"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_my_history"
+                        android:gravity="bottom|center_horizontal"
+                        android:text="历史"
+                        android:textSize="10sp"
+                        android:textColor="@color/White"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:layout_width="1dp"
+                        android:textSize="15dp"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_my_rss"
+                        android:text="订阅"
+                        android:textSize="10sp"
+                        android:textColor="@color/White"
+                        android:gravity="bottom|center_horizontal"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:layout_width="1dp"
+                        android:textSize="15dp"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/ic_my_download"
+                        android:text="下载"
+                        android:textSize="10sp"
+                        android:textColor="@color/White"
+                        android:gravity="bottom|center_horizontal"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/rl_record_fragment_user"
+                android:layout_below="@+id/rl_top_fragment_user"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/user_fragment_layout_shape"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:drawableLeft="@mipmap/ic_rec"
+                    android:text="开始录音"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/user_fragment_layout_shape_2"
+                android:layout_below="@+id/rl_record_fragment_user"
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+                <TextView
+                    android:drawableLeft="@mipmap/playpage_icon_dynamic_rhythm_p2"
+                    android:text="主播中心"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
