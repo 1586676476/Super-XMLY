@@ -1,15 +1,19 @@
 package com.jieleo.xmly_plus.fragment.home;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 
+import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.adapter.ListFragmentPageRVAdapter;
 import com.jieleo.xmly_plus.fragment.BaseFragment;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
-import com.jieleo.xmly_plus.model.bean.presenter_list_page.ListPagePresenter;
-import com.jieleo.xmly_plus.model.bean.view_list_page.IlistPageView;
+import com.jieleo.xmly_plus.presenter.presenter_list_page.ListPagePresenter;
+import com.jieleo.xmly_plus.presenter.view_list_page.IlistPageView;
+import com.jieleo.xmly_plus.tools.MyUrl;
 
 /**
  * Created by jie on 2017/3/9.
@@ -17,8 +21,9 @@ import com.jieleo.xmly_plus.model.bean.view_list_page.IlistPageView;
 
 public class ListPageFragment extends BaseFragment implements IlistPageView{
     private RecyclerView recyclerView;
-    private ImageView imageView;
     private ListPagePresenter listPagePresenter;
+    private ListFragmentPageRVAdapter listFragmentPageRVAdapter;
+    private static final String TAG = "ListPageFragment";
     @Override
     protected int bindLayout() {
         return R.layout.fragment_list;
@@ -27,8 +32,12 @@ public class ListPageFragment extends BaseFragment implements IlistPageView{
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_fragment_list);
-        imageView = (ImageView) view.findViewById(R.id.iv_adv_fragment_list);
-        listPagePresenter
+        listPagePresenter = new ListPagePresenter(this);
+        listFragmentPageRVAdapter = new ListFragmentPageRVAdapter(MyApp.getContext());
+        listPagePresenter.setListPageUrl(MyUrl.LIST_PAGE_FRAGMENT_URL);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MyApp.getContext(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(listFragmentPageRVAdapter);
+
     }
 
     @Override
@@ -43,7 +52,8 @@ public class ListPageFragment extends BaseFragment implements IlistPageView{
 
     @Override
     public void onViewSucceed(ListPageBean listPageBean) {
-
+        Log.e(TAG, "onViewSucceed: "+listPageBean );
+        listFragmentPageRVAdapter.setListPageBean(listPageBean);
     }
 
     @Override
@@ -51,8 +61,5 @@ public class ListPageFragment extends BaseFragment implements IlistPageView{
 
     }
 
-    @Override
-    public void setFirstImage(ListPageBean listPageBean) {
 
-    }
 }

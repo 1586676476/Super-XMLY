@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.model.bean.view_list_page;
+package com.jieleo.xmly_plus.presenter.view_list_page;
 
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 
@@ -8,6 +8,5 @@ import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 public interface IlistPageView {
     void onViewSucceed(ListPageBean listPageBean);
     void onViewFailed();
-    void setFirstImage(ListPageBean listPageBean);
 
 }
