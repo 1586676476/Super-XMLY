@@ -21,31 +21,41 @@ public class DisCoverAdapter extends RecyclerView.Adapter<MyViewHolder> {
     private DisCoverBean disCoverBean;
     private Context context;
 
+    public final int ONE=0;
+    public final int TWO=1;
+    public final int THREE=2;
+    public final int FOUR=3;
+    public final int FIVE=4;
+
     public void setDisCoverBean(DisCoverBean disCoverBean) {
         this.disCoverBean = disCoverBean;
     }
 
     public DisCoverAdapter(Context context) {
-
         this.context = context;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         return MyViewHolder.onCreatMyViewHolder(context, parent, R.layout.discover_recyclerview_item);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        load(holder, position);
+     }
+
+    private void load(MyViewHolder holder, int position) {
         DisCoverBean.ListBeanX listBeanX=disCoverBean.getList().get(position);
-        //判断每层有几行
+
         for (int i = 0; i < listBeanX.getList().size(); i++) {
             holder.setText(R.id.discover_recycleView_leftText,listBeanX.getList().get(i).getTitle());
             holder.setText(R.id.discover_recycleView_rightText,listBeanX.getList().get(i).getSubtitle());
             holder.setOnLineImage(R.id.discover_recycleView_leftImage,listBeanX.getList().get(i).getCoverPath() );
             holder.setOnLineImage(R.id.discover_recycleView_rightImage,listBeanX.getList().get(i).getSubCoverPath());
         }
-     }
+    }
 
     @Override
     public int getItemCount() {
