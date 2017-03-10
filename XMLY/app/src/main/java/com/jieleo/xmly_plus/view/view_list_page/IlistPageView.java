@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.presenter.view_list_page;
+package com.jieleo.xmly_plus.view.view_list_page;
 
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 

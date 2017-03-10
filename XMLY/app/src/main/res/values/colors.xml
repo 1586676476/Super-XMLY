@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="White">#ffffff</color>
     <color name="Gary">#dcdbdb</color>
+    <color name="Gold">#eab957</color>
+    <color name="GaryText">#c4c4c4"</color>
 </resources>

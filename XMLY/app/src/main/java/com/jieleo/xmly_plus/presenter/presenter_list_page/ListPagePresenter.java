@@ -3,7 +3,7 @@ package com.jieleo.xmly_plus.presenter.presenter_list_page;
 import com.jieleo.xmly_plus.model.bean.model_list_page.IlistNet;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageModel;
-import com.jieleo.xmly_plus.presenter.view_list_page.IlistPageView;
+import com.jieleo.xmly_plus.view.view_list_page.IlistPageView;
 
 /**
  * Created by liuHao on 17/3/10.

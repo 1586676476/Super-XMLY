@@ -3,6 +3,7 @@ package com.jieleo.xmly_plus.fragment.home;
 import android.os.Bundle;
 import android.view.View;
 
+import com.androidkun.PullToRefreshRecyclerView;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.fragment.BaseFragment;
 
@@ -11,6 +12,7 @@ import com.jieleo.xmly_plus.fragment.BaseFragment;
  */
 
 public class LivePageFragment extends BaseFragment {
+    private PullToRefreshRecyclerView recyclerView;
     @Override
     protected int bindLayout() {
         return R.layout.fragment_live;
@@ -18,7 +20,7 @@ public class LivePageFragment extends BaseFragment {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
-
+        recyclerView = (PullToRefreshRecyclerView) view.findViewById(R.id.rv_fragment_live);
     }
 
     @Override

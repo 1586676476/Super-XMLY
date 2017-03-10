@@ -12,7 +12,7 @@ import com.jieleo.xmly_plus.adapter.ListFragmentPageRVAdapter;
 import com.jieleo.xmly_plus.fragment.BaseFragment;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 import com.jieleo.xmly_plus.presenter.presenter_list_page.ListPagePresenter;
-import com.jieleo.xmly_plus.presenter.view_list_page.IlistPageView;
+import com.jieleo.xmly_plus.view.view_list_page.IlistPageView;
 import com.jieleo.xmly_plus.tools.MyUrl;
 
 /**
