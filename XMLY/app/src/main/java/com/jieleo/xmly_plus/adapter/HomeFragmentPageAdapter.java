@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.jieleo.xmly_plus.model.bean.TabWordsBean;
+
 import java.util.List;
 
 /**
@@ -11,11 +13,12 @@ import java.util.List;
  */
 
 public class HomeFragmentPageAdapter extends FragmentPagerAdapter {
-    private List<String>  title;
-    private List<Fragment> fragments;
 
-    public void setTitle(List<String> title) {
-        this.title = title;
+    private List<Fragment> fragments;
+    private TabWordsBean bean;
+
+    public void setBean(TabWordsBean bean) {
+        this.bean = bean;
         notifyDataSetChanged();
     }
 
@@ -40,8 +43,8 @@ public class HomeFragmentPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if (title!=null){
-        return title.get(position);
+        if (bean!=null){
+            return bean.getTabs().getList().get(position).getTitle();
         }
         return null;
     }

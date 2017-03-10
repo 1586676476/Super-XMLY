@@ -1,11 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_search_fragment_home"
+            android:layout_width="match_parent"
+            android:text="   蒙曼唐诗"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textSize="10sp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/search_text_view_shape"
+            android:drawableLeft="@mipmap/ic_search_normal"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_download_fragment_home"
+            android:drawableTop="@mipmap/ic_my_download"
+            android:layout_alignParentRight="true"
+            android:scaleType="center"
+            android:text="@string/download"
+            android:layout_marginRight="5dp"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal|top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toLeftOf="@id/tv_download_fragment_home"
+            android:id="@+id/tv_history_fragment_home"
+            android:layout_marginRight="10dp"
+            android:text="@string/history"
+            android:layout_alignTop="@id/tv_download_fragment_home"
+            android:textSize="10sp"
+            android:gravity="center_horizontal|top"
+            android:drawableTop="@mipmap/ic_my_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     <android.support.design.widget.TabLayout
         android:id="@+id/ty_fragment_home"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/tv_search_fragment_home"
         android:layout_height="wrap_content">
 
     </android.support.design.widget.TabLayout>

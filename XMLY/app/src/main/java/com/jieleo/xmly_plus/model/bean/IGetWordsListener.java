@@ -8,6 +8,6 @@ import java.util.List;
 
 
 public interface IGetWordsListener {
-    List<String> onSuccess(TabWordsBean tabWordsBean);
+    void onSuccess(TabWordsBean tabWordsBean);
     void onError();
 }
