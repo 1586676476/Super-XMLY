@@ -18,4 +18,8 @@
         <item name="android:textSize">8sp</item>
     </style>
 
+    <style name="MyTabLayoutTextAppearanceInverse" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
