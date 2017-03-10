@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.adapter.HomeFragmentPageAdapter;
@@ -27,12 +29,13 @@ import java.util.List;
  */
 
 
-public class HomeFragment extends BaseFragment implements TabView {
+public class HomeFragment extends BaseFragment implements TabView, View.OnClickListener {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private HomeFragmentPageAdapter homeFragmentPageAdapter;
     private List<Fragment> fragments;
     private TabPresenter tabPresenter;
+    private TextView searchTv,downLoadTv,historyTv;
 
     @Override
     protected int bindLayout() {
@@ -41,6 +44,7 @@ public class HomeFragment extends BaseFragment implements TabView {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
+        searchTv = (TextView) view.findViewById(R.id.tv_search_fragment_home);
         tabLayout = (TabLayout) view.findViewById(R.id.ty_fragment_home);
         viewPager = (ViewPager) view.findViewById(R.id.vp_fragment_home);
         homeFragmentPageAdapter = new HomeFragmentPageAdapter(getChildFragmentManager());
@@ -65,12 +69,26 @@ public class HomeFragment extends BaseFragment implements TabView {
 
     @Override
     protected void bindEvent() {
-
+        searchTv.setOnClickListener(this);
+        historyTv.setOnClickListener(this);
+        downLoadTv.setOnClickListener(this);
     }
 
 
     @Override
     public void showTabWords(TabWordsBean bean) {
         homeFragmentPageAdapter.setBean(bean);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_search_fragment_home:
+                break;
+            case R.id.tv_download_fragment_home:
+                break;
+            case R.id.tv_history_fragment_home:
+                break;
+        }
     }
 }
