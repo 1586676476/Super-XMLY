@@ -131,6 +131,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_marginTop="10dp"
+                android:id="@+id/rl_main_live_fragment_user"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/user_fragment_layout_shape_2"
@@ -145,6 +146,60 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_msg_fragment_user"
+                android:text="我的消息"
+                android:layout_below="@id/rl_main_live_fragment_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_my_buy_fragment_user"
+                android:layout_below="@id/tv_msg_fragment_user"
+                android:text="我的已购"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_my_wallet_fragment_user"
+                android:layout_below="@id/tv_my_buy_fragment_user"
+                android:text="我的钱包"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_share_to_make_money_fragment_user"
+                android:layout_below="@id/tv_my_wallet_fragment_user"
+                android:text="分享赚钱"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_i_liked_fragment_user"
+                android:layout_below="@id/tv_share_to_make_money_fragment_user"
+                android:text="我喜欢的"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_free_flux_fragment_user"
+                android:layout_below="@id/tv_i_liked_fragment_user"
+                android:text="免流量服务"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_more_fragment_user"
+                android:layout_below="@id/tv_free_flux_fragment_user"
+                android:text="更多"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_callback_fragment_user"
+                android:layout_below="@id/tv_more_fragment_user"
+                android:layout_width="match_parent"
+                android:text="意见反馈"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_setting_fragment_user"
+                android:layout_below="@id/tv_callback_fragment_user"
+                android:text="设置"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>
