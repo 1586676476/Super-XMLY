@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="123"
+        android:textColor="@color/Black"
         android:layout_marginTop="13dp"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/rv_item_rv_profile_image"/>

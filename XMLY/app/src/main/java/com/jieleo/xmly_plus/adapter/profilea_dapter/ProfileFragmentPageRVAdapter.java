@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.adapter.profilea_dapter.ProfileFragmentItemAdapter;
@@ -85,7 +86,8 @@ public class ProfileFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerV
             profilePageViewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
             profilePageViewHolder.recyclerView.setAdapter(profileFragmentItemAdapter);
             profileFragmentItemAdapter.setDatasBeen(profileBean);
-            Log.e(TAG, "onBindViewHolder1: "+ profileBean);
+            profilePageViewHolder.textView.setText(profileBean.getDatas().get(position).getTitle());
+
         } else {
             //加载主播榜单recycleview
             ProfileAnchorPageViewHolder profileAnchorPageViewHolder = (ProfileAnchorPageViewHolder) holder;
@@ -93,7 +95,8 @@ public class ProfileFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerV
             profileAnchorPageViewHolder.anchor.setLayoutManager(new LinearLayoutManager(context));
             profileAnchorPageViewHolder.anchor.setAdapter(profileFragmentItemAnchorAdapter);
             profileFragmentItemAnchorAdapter.setDatasBeen(profileBean.getDatas().get(position-1));
-            Log.e(TAG, "onBindViewHolder: "+profileBean.getDatas().get(position-1).getCount());
+            profileAnchorPageViewHolder.text.setText(profileBean.getDatas().get(position-1).getTitle());
+
         }
 
     }
@@ -106,19 +109,23 @@ public class ProfileFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerV
 
     class ProfilePageViewHolder extends RecyclerView.ViewHolder {
         private DemoRecyclerView recyclerView;
+        private TextView textView;
 
         public ProfilePageViewHolder(View itemView) {
             super(itemView);
             recyclerView = (DemoRecyclerView) itemView.findViewById(R.id.rv_item_rv_profile_recycleView);
+            textView= (TextView) itemView.findViewById(R.id.rv_item_rv_profile_text);
         }
     }
 
     class ProfileAnchorPageViewHolder extends RecyclerView.ViewHolder {
         private DemoRecyclerView anchor;
+        private TextView text;
 
         public ProfileAnchorPageViewHolder(View itemView) {
             super(itemView);
             anchor = (DemoRecyclerView) itemView.findViewById(R.id.rv_item_rv_profile_anchor_recycleView);
+            text= (TextView) itemView.findViewById(R.id.rv_item_rv_profile_anchor_text);
         }
     }
 }

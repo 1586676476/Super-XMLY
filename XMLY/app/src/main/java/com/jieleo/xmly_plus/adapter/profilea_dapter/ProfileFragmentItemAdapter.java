@@ -20,6 +20,7 @@ public class ProfileFragmentItemAdapter extends RecyclerView.Adapter<BaseViewHol
     private ProfileBean datas;
     private Context context;
 
+
     public void setDatasBeen(ProfileBean datasBeen) {
         this.datas = datasBeen;
         notifyDataSetChanged();
