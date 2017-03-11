@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.model.bean;
+package com.jieleo.xmly_plus.model;
 
 import java.util.List;
 

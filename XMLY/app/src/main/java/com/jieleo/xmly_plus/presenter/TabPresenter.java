@@ -1,8 +1,8 @@
 package com.jieleo.xmly_plus.presenter;
 
-import com.jieleo.xmly_plus.model.bean.IGetWordsListener;
-import com.jieleo.xmly_plus.model.bean.TabLayoutModel;
-import com.jieleo.xmly_plus.model.bean.TabWordsBean;
+import com.jieleo.xmly_plus.model.IGetWordsListener;
+import com.jieleo.xmly_plus.model.TabLayoutModel;
+import com.jieleo.xmly_plus.model.TabWordsBean;
 import com.jieleo.xmly_plus.view.TabView;
 
 /**

@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
@@ -15,7 +14,7 @@ import com.jieleo.xmly_plus.fragment.home.HotPageFragment;
 import com.jieleo.xmly_plus.fragment.home.ListPageFragment;
 import com.jieleo.xmly_plus.fragment.home.LivePageFragment;
 import com.jieleo.xmly_plus.fragment.home.ProfilePageFragment;
-import com.jieleo.xmly_plus.model.bean.TabWordsBean;
+import com.jieleo.xmly_plus.model.TabWordsBean;
 import com.jieleo.xmly_plus.presenter.TabPresenter;
 import com.jieleo.xmly_plus.tools.MyUrl;
 import com.jieleo.xmly_plus.view.TabView;
@@ -79,10 +78,6 @@ public class HomeFragment extends BaseFragment implements TabView, View.OnClickL
     }
 
 
-    @Override
-    public void showTabWords(TabWordsBean bean) {
-        homeFragmentPageAdapter.setBean(bean);
-    }
 
     @Override
     public void onClick(View v) {
@@ -94,5 +89,10 @@ public class HomeFragment extends BaseFragment implements TabView, View.OnClickL
             case R.id.tv_history_fragment_home:
                 break;
         }
+    }
+
+    @Override
+    public void showTabWords(TabWordsBean bean) {
+        homeFragmentPageAdapter.setBean(bean);
     }
 }

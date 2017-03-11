@@ -1,9 +1,11 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -22,6 +24,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private UserFragment mUserFragment;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
+    private ImageView playBtn;
 
     @Override
     protected int bindLayout() {
@@ -34,6 +37,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 //        mapRbtn = bindView(R.id.rd_btn_map);
 //        discoverRbtn = bindView(R.id.rd_btn_discover);
 //        personRbtn = bindView(R.id.rd_btn_person);
+        playBtn = (ImageView) findViewById(R.id.fa_btn_aty_main);
+
         mRadioGroup = bindView(R.id.rg_bottom_aty_main);
 
 
@@ -66,11 +71,18 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         //设置RadioGroup的监听事件
         mRadioGroup.setOnCheckedChangeListener(this);
 
+
+        playBtn.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.fa_btn_aty_main:
+                startActivity(new Intent(this,PlayMusicActivity.class));
+                break;
+        }
     }
 
     // RadioGroup的监听

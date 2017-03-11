@@ -10,40 +10,39 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 
 /**
  * Created by liuHao on 17/3/10.
  */
-public class MyViewHolder  extends RecyclerView.ViewHolder{
+public class BaseViewHolder extends RecyclerView.ViewHolder{
     private View view;
     private Context context;
     private SparseArray<View> viewSparseArray;
-    public MyViewHolder(View itemView,Context context) {
+    public BaseViewHolder(View itemView, Context context) {
         super(itemView);
         this.context = context;
         view = itemView;
         viewSparseArray = new SparseArray<>();
     }
 
-    public static MyViewHolder onCreatMyViewHolder(Context context, ViewGroup viewGroup,int layoutId){
+    public static BaseViewHolder onCreatMyViewHolder(Context context, ViewGroup viewGroup, int layoutId){
         View view = LayoutInflater.from(context).inflate(layoutId,viewGroup,false);
-        MyViewHolder myViewHolder = new MyViewHolder(view,context);
-         return  myViewHolder;
+        BaseViewHolder baseViewHolder = new BaseViewHolder(view,context);
+         return baseViewHolder;
     }
 
-    public static MyViewHolder onCreatMyListViewHoler(View view,ViewGroup viewGroup,int layoutId){
-        MyViewHolder myViewHolder =null;
+    public static BaseViewHolder onCreatMyListViewHoler(View view, ViewGroup viewGroup, int layoutId){
+        BaseViewHolder baseViewHolder =null;
         if (view==null){
             view = LayoutInflater.from(viewGroup.getContext()).inflate(layoutId,viewGroup,false);
-            myViewHolder = new MyViewHolder(view,viewGroup.getContext());
-            view.setTag(myViewHolder);
+            baseViewHolder = new BaseViewHolder(view,viewGroup.getContext());
+            view.setTag(baseViewHolder);
         }else {
-            myViewHolder = (MyViewHolder) view.getTag();
+            baseViewHolder = (BaseViewHolder) view.getTag();
 
         }
 
-        return myViewHolder;
+        return baseViewHolder;
     }
 
     public <T extends View> T getView(int resId){
@@ -55,14 +54,14 @@ public class MyViewHolder  extends RecyclerView.ViewHolder{
         return (T) view;
     }
 
-    public MyViewHolder setText(int resId,String s){
+    public BaseViewHolder setText(int resId, String s){
         TextView textView = (TextView) itemView.findViewById(resId);
         if (s!=null){
             textView.setText(s);
         }
         return this;
     }
-    public MyViewHolder setOnLineImage(int resId,String url){
+    public BaseViewHolder setOnLineImage(int resId, String url){
         ImageView imageView  = (ImageView) itemView.findViewById(resId);
         if (url!=null){
             Glide.with(context).load(url).into(imageView);

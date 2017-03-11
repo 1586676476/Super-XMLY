@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.model.bean.model_list_profile.ProfileBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 /**
  * Created by dllo on 17/3/10.
  */
 
-public class ProfileAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class ProfileAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private ProfileBean profileBean;
     protected Context context;
@@ -27,12 +27,12 @@ public class ProfileAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return MyViewHolder.onCreatMyViewHolder(context,parent, R.layout.profile_recycleview_item);
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return BaseViewHolder.onCreatMyViewHolder(context,parent, R.layout.profile_recycleview_item);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
 
     }
 
