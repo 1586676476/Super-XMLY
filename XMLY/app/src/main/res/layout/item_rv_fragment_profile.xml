@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/rv_item_rv_profile_image"
@@ -19,7 +19,7 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/rv_item_rv_profile_image"/>
 
-    <android.support.v7.widget.RecyclerView
+    <com.jieleo.xmly_plus.tools.DemoRecyclerView
         android:id="@+id/rv_item_rv_profile_recycleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

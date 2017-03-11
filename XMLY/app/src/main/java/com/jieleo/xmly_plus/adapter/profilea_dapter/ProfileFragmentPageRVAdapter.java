@@ -13,6 +13,7 @@ import com.jieleo.xmly_plus.adapter.profilea_dapter.ProfileFragmentItemAdapter;
 import com.jieleo.xmly_plus.model.bean.model_list_profile.ProfileBean;
 import com.jieleo.xmly_plus.tools.BaseViewHolder;
 import com.jieleo.xmly_plus.tools.BaseViewHolder;
+import com.jieleo.xmly_plus.tools.DemoRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,20 +105,20 @@ public class ProfileFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerV
 
 
     class ProfilePageViewHolder extends RecyclerView.ViewHolder {
-        private RecyclerView recyclerView;
+        private DemoRecyclerView recyclerView;
 
         public ProfilePageViewHolder(View itemView) {
             super(itemView);
-            recyclerView = (RecyclerView) itemView.findViewById(R.id.rv_item_rv_profile_recycleView);
+            recyclerView = (DemoRecyclerView) itemView.findViewById(R.id.rv_item_rv_profile_recycleView);
         }
     }
 
     class ProfileAnchorPageViewHolder extends RecyclerView.ViewHolder {
-        private RecyclerView anchor;
+        private DemoRecyclerView anchor;
 
         public ProfileAnchorPageViewHolder(View itemView) {
             super(itemView);
-            anchor = (RecyclerView) itemView.findViewById(R.id.rv_item_rv_profile_anchor_recycleView);
+            anchor = (DemoRecyclerView) itemView.findViewById(R.id.rv_item_rv_profile_anchor_recycleView);
         }
     }
 }

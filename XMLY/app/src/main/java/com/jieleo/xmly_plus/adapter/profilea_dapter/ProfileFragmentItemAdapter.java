@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.model.bean.model_list_profile.ProfileBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by dllo on 17/3/11.
  */
 
-public class ProfileFragmentItemAdapter extends RecyclerView.Adapter<MyViewHolder>{
+public class ProfileFragmentItemAdapter extends RecyclerView.Adapter<BaseViewHolder>{
     private static final String TAG = "ProfileFragmentItemAdap";
     private ProfileBean datas;
     private Context context;
@@ -31,12 +31,12 @@ public class ProfileFragmentItemAdapter extends RecyclerView.Adapter<MyViewHolde
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return MyViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_rv_item_fragment_rv);
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return BaseViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_rv_item_fragment_rv);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
 
         holder.setOnLineImage(R.id.item_rv_item_fragment_rv_image,datas.getDatas().get(0).getList().get(position).getCoverPath());
         holder.setText(R.id.item_rv_item_fragment_rv_title,datas.getDatas().get(0).getList().get(position).getTitle());
@@ -46,7 +46,7 @@ public class ProfileFragmentItemAdapter extends RecyclerView.Adapter<MyViewHolde
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: "+datas.getDatas().get(0).getCount() );
+        Log.e(TAG, "getItemCount: "+datas.getDatas().get(0).getCount()   );
         return datas!=null?datas.getDatas().get(0).getCount():0;
     }
 }

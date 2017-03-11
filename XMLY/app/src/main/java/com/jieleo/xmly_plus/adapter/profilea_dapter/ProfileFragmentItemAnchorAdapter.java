@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.model.bean.model_list_profile.ProfileBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 /**
  * Created by dllo on 17/3/11.
  */
 
-public class ProfileFragmentItemAnchorAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class ProfileFragmentItemAnchorAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Context context;
     private ProfileBean.DatasBean datasBeen;
 
@@ -27,12 +27,12 @@ public class ProfileFragmentItemAnchorAdapter extends RecyclerView.Adapter<MyVie
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return MyViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_rv_item_fragment_rv_anchor);
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return BaseViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_rv_item_fragment_rv_anchor);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.setOnLineImage(R.id.item_rv_item_fragment_rv_anchor_image,datasBeen.getList().get(position).getCoverPath());
         holder.setText(R.id.item_rv_item_fragment_rv_anchor_title,datasBeen.getList().get(position).getTitle());
         holder.setText(R.id.item_rv_item_fragment_rv_anchor_firstContent,datasBeen.getList().get(position).getFirstKResults().get(0).getTitle());
