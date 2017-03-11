@@ -22,4 +22,12 @@
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="user_page_text_style">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/White</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
 </resources>

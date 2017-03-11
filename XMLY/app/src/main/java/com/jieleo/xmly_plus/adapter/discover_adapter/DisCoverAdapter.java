@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 /**
  * Created by dllo on 17/3/10.
  */
 
-public class DisCoverAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class DisCoverAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private DisCoverBean disCoverBean;
     private Context context;
@@ -32,17 +32,17 @@ public class DisCoverAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return MyViewHolder.onCreatMyViewHolder(context, parent, R.layout.discover_recyclerview_item);
+        return BaseViewHolder.onCreatMyViewHolder(context, parent, R.layout.discover_recyclerview_item);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
         load(holder, position);
      }
 
-    private void load(MyViewHolder holder, int position) {
+    private void load(BaseViewHolder holder, int position) {
         DisCoverBean.ListBeanX listBeanX=disCoverBean.getList().get(position);
 
         for (int i = 0; i < listBeanX.getList().size(); i++) {

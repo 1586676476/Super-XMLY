@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.adapter.profilea_dapter.ProfileFragmentItemAdapter;
 import com.jieleo.xmly_plus.model.bean.model_list_profile.ProfileBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class ProfileFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerV
         RecyclerView.ViewHolder viewHolder = null;
         if (viewHolder == null) {
             if (viewType == HEAD_TYPE) {
-                viewHolder = MyViewHolder.onCreatMyViewHolder(context, parent, R.layout.item_head_rv_fragment_profile);
+                viewHolder = BaseViewHolder.onCreatMyViewHolder(context, parent, R.layout.item_head_rv_fragment_profile);
             } else if (viewType == PROGRAM) {
                 View view = LayoutInflater.from(context).inflate(R.layout.item_rv_fragment_profile, parent, false);
                 viewHolder = new ProfilePageViewHolder(view);
@@ -74,7 +75,7 @@ public class ProfileFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerV
         int type = getItemViewType(position);
         //加载头布局
         if (type == HEAD_TYPE) {
-            MyViewHolder myViewHolder = (MyViewHolder) holder;
+            BaseViewHolder myViewHolder = (BaseViewHolder) holder;
             myViewHolder.setOnLineImage(R.id.iv_adv_head_fragment_profile, profileBean.getFocusImages().getList().get(position).getPic());
         } else if (type == PROGRAM) {
             //加载节目榜单recycleView

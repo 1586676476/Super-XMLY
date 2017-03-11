@@ -55,6 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <ImageView
+                    android:id="@+id/iv_to_other_fragment_user"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
@@ -68,6 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
                     <TextView
+                        android:id="@+id/tv_history_fragment_user"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/ic_my_history"
@@ -83,6 +85,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:id="@+id/tv_rss_fragment_user"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/ic_my_rss"
@@ -98,6 +101,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:id="@+id/tv_download_fragment_user"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/ic_my_download"
@@ -139,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp">
                 <TextView
-                    android:drawableLeft="@mipmap/playpage_icon_dynamic_rhythm_p2"
+                    android:drawableLeft="@mipmap/ic_jmgl"
                     android:text="主播中心"
                     android:gravity="center"
                     android:layout_centerInParent="true"
@@ -148,58 +152,67 @@
             </RelativeLayout>
             <TextView
                 android:id="@+id/tv_msg_fragment_user"
-                android:text="我的消息"
+                android:text="   我的消息"
+                android:drawableLeft="@mipmap/album_comment_email"
+                android:layout_marginTop="10dp"
                 android:layout_below="@id/rl_main_live_fragment_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_my_buy_fragment_user"
                 android:layout_below="@id/tv_msg_fragment_user"
-                android:text="我的已购"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="   我的已购"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@mipmap/ic_wd_buy"
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_my_wallet_fragment_user"
                 android:layout_below="@id/tv_my_buy_fragment_user"
-                android:text="我的钱包"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="   我的钱包"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@mipmap/ic_wd_ximoney"
+                style="@style/user_page_text_style"/>
             <TextView
-                android:id="@+id/tv_share_to_make_money_fragment_user"
+                android:id="@+id/tv_spread_fragment_user"
                 android:layout_below="@id/tv_my_wallet_fragment_user"
-                android:text="分享赚钱"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="   分享赚钱"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@mipmap/ic_more_spread"
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_i_liked_fragment_user"
-                android:layout_below="@id/tv_share_to_make_money_fragment_user"
-                android:text="我喜欢的"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_below="@id/tv_spread_fragment_user"
+                android:text="   我喜欢的"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@mipmap/ic_wd_like"
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_free_flux_fragment_user"
                 android:layout_below="@id/tv_i_liked_fragment_user"
-                android:text="免流量服务"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="   免流量服务"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@mipmap/album_comment_top"
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_more_fragment_user"
                 android:layout_below="@id/tv_free_flux_fragment_user"
-                android:text="更多"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="     更多"
+                android:drawableLeft="@mipmap/album_edit_more"
+                android:layout_marginTop="1dp"
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_callback_fragment_user"
+                android:drawableLeft="@mipmap/ic_wd_feedback"
                 android:layout_below="@id/tv_more_fragment_user"
-                android:layout_width="match_parent"
-                android:text="意见反馈"
-                android:layout_height="wrap_content" />
+                android:text="   意见反馈"
+                android:layout_marginTop="10dp"
+                style="@style/user_page_text_style"/>
             <TextView
                 android:id="@+id/tv_setting_fragment_user"
                 android:layout_below="@id/tv_callback_fragment_user"
-                android:text="设置"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="   设置"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@mipmap/ic_wd_setting"
+                style="@style/user_page_text_style"/>
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

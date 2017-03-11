@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.model.bean;
+package com.jieleo.xmly_plus.model;
 
 /**
  * Created by yuyongjie on 17/3/9.

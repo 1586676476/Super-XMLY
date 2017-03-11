@@ -8,5 +8,9 @@
     <color name="Orange">#f5410f</color>
     <color name="Gold">#eab957</color>
     <color name="GaryText">#c4c4c4</color>
+<<<<<<< HEAD
     <color name="Black">#2B2B2B</color>
+=======
+    <color name="colorBlack">#000</color>
+>>>>>>> 67a56b81665974479b8cd3a4de3968f6cd16ba42
 </resources>

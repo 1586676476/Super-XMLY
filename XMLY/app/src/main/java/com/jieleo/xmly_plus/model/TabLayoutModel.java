@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.model.bean;
+package com.jieleo.xmly_plus.model;
 
 import com.jieleo.xmly_plus.tools.CallBack;
 import com.jieleo.xmly_plus.tools.NetTool;

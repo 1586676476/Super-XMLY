@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.jieleo.xmly_plus.model.bean.TabWordsBean;
+import com.jieleo.xmly_plus.model.TabWordsBean;
 
 import java.util.List;
 
