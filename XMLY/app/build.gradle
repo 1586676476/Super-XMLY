@@ -11,6 +11,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    dependencies{
+        compile 'com.youth.banner:banner:1.4.2'}
+
     buildTypes {
         release {
             minifyEnabled false

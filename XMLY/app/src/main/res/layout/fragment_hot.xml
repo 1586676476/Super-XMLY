@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="热门" />
-</LinearLayout>
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/recycleView_fragment_hot"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
+
+        <com.youth.banner.Banner
+            android:id="@+id/fragment_hot_banner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            />
+
+        <com.jieleo.xmly_plus.tools.DemoRecyclerView
+            android:id="@+id/fragment_hot_recycleView"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_below="@id/fragment_hot_banner"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
