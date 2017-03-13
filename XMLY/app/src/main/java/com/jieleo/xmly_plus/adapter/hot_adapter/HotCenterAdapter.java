@@ -28,6 +28,8 @@ public class HotCenterAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         this.context = context;
     }
 
+
+
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return BaseViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_rv_fragment_hot);

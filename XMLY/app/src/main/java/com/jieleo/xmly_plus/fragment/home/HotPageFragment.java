@@ -17,6 +17,7 @@ import com.jieleo.xmly_plus.model.bean.model_hot_page.HotBean;
 import com.jieleo.xmly_plus.model.bean.model_hot_page.HotCenterBean;
 import com.jieleo.xmly_plus.presenter.persenter_hot_page.HotPagePresenter;
 import com.jieleo.xmly_plus.tools.CallBack;
+import com.jieleo.xmly_plus.tools.DemoRecyclerView;
 import com.jieleo.xmly_plus.tools.MyUrl;
 import com.jieleo.xmly_plus.tools.NetTool;
 import com.jieleo.xmly_plus.view.HotView;
@@ -38,7 +39,7 @@ public class HotPageFragment extends BaseFragment implements HotView {
     private HotPagePresenter hotPagePresenter;
     private List<String> picture;
 
-    private RecyclerView recycleView;
+    private DemoRecyclerView recycleView;
     private HotCenterAdapter hotCenterAdapter;
 
 
@@ -58,7 +59,7 @@ public class HotPageFragment extends BaseFragment implements HotView {
         picture = new ArrayList<>();
         banner();
 
-        recycleView = (RecyclerView) view.findViewById(R.id.fragment_hot_recycleView);
+        recycleView = (DemoRecyclerView) view.findViewById(R.id.fragment_hot_recycleView);
         hotCenterAdapter = new HotCenterAdapter(getContext());
         LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recycleView.setLayoutManager(manager);
@@ -82,7 +83,6 @@ public class HotPageFragment extends BaseFragment implements HotView {
                 banner.setImages(picture);
                 banner.start();
             }
-
             @Override
             public void onError(Throwable throwable) {
 
