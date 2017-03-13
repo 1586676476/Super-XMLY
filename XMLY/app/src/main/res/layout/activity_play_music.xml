@@ -16,6 +16,8 @@
             <SeekBar
                 android:id="@+id/seek_bar_activity_play_music"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="-10dp"
                 android:layout_below="@id/iv_bg_activity_play_music"
                 android:layout_height="wrap_content"/>
             <RelativeLayout
@@ -166,7 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_activity_play_music"
+                    android:id="@+id/rv_recommend_activity_play_music"
                     android:layout_below="@id/tv_recommend_activity_play_music"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
