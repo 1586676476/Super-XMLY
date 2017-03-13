@@ -47,7 +47,6 @@ public class ProfileFragmentItemAdapter extends RecyclerView.Adapter<BaseViewHol
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: "+datas.getDatas().get(0).getCount()   );
         return datas!=null?datas.getDatas().get(0).getCount():0;
     }
 }
