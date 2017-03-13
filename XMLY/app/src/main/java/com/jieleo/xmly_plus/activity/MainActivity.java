@@ -80,7 +80,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fa_btn_aty_main:
-                startActivity(new Intent(this,PlayMusicActivity.class));
+                Intent intent=new Intent(this,PlayMusicActivity.class);
+                intent.putExtra("id",5890260);
+                startActivity(intent);
                 break;
         }
     }
