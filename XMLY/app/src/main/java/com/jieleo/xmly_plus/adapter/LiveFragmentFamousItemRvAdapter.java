@@ -12,13 +12,24 @@ import android.widget.TextView;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.model.bean.model_live_page.LivePageBean;
 
+import java.util.List;
+
 /**
  * Created by liuHao on 17/3/10.
  */
 public class LiveFragmentFamousItemRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private Context context;
-    private LivePageBean.FamousBean famousBean;
+    private List<LivePageBean.FamousBean> famousBeen;
+
+    public LiveFragmentFamousItemRvAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void setFamousBeen(List<LivePageBean.FamousBean> famousBeen) {
+        this.famousBeen = famousBeen;
+    }
+
     class FamousViewHolder extends RecyclerView.ViewHolder{
         private TextView textView;
         private RecyclerView recyclerView;
@@ -44,20 +55,26 @@ public class LiveFragmentFamousItemRvAdapter extends RecyclerView.Adapter<Recycl
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         FamousViewHolder famousViewHolder = (FamousViewHolder) holder;
-        famousViewHolder.textView.setText(famousBean.getTitle());
+        famousViewHolder.textView.setText(famousBeen.get(position).getTitle());
         if (position==4){
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
+            LiveFragmentFamousSingerItemRvAdapter liveFragmentFamousSingerItemRvAdapter = new LiveFragmentFamousSingerItemRvAdapter(context);
+            famousViewHolder.recyclerView.setLayoutManager(linearLayoutManager);
+            famousViewHolder.recyclerView.setAdapter(liveFragmentFamousSingerItemRvAdapter);
+            liveFragmentFamousSingerItemRvAdapter.setListBean(famousBeen.get(position).getList());
 
         }else {
             GridLayoutManager gridLayoutManager = new GridLayoutManager(context,3,LinearLayoutManager.VERTICAL,false);
             LiveFragmentFamousItemItemRvAdapter liveFragmentFamousItemItemRvAdapter = new LiveFragmentFamousItemItemRvAdapter(context);
             famousViewHolder.recyclerView.setLayoutManager(gridLayoutManager);
             famousViewHolder.recyclerView.setAdapter(liveFragmentFamousItemItemRvAdapter);
+            liveFragmentFamousItemItemRvAdapter.setListBean(famousBeen.get(position).getList());
         }
 
     }
 
     @Override
     public int getItemCount() {
-        return famousBean==null?0:famousBean.getList().size();
+        return famousBeen==null?0:famousBeen.size();
     }
 }

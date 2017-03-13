@@ -1,6 +1,7 @@
 package com.jieleo.xmly_plus.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,12 @@ public class LiveFragmentPageRvAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         LiveViewHolder liveViewHolder = (LiveViewHolder) holder;
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
+        liveViewHolder.recyclerView.setLayoutManager(linearLayoutManager);
         if (position==0){
+            LiveFragmentFamousItemRvAdapter liveFragmentFamousItemRvAdapter = new LiveFragmentFamousItemRvAdapter(context);
+            liveViewHolder.recyclerView.setAdapter(liveFragmentFamousItemRvAdapter);
+            liveFragmentFamousItemRvAdapter.setFamousBeen(livePageBean.getFamous());
 
         }
 

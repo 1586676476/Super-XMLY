@@ -5,6 +5,7 @@
 
     >
   <ImageView
+      android:id="@+id/iv_singer_item_famous"
       android:layout_gravity="center_vertical"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" />
