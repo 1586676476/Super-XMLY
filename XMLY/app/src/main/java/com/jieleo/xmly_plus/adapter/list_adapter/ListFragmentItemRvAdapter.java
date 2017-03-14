@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.adapter;
+package com.jieleo.xmly_plus.adapter.list_adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 import java.util.List;
 
 /**
  * Created by liuHao on 17/3/10.
  */
-public class ListFragmentItemRvAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class ListFragmentItemRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private Context context;
     private List<ListPageBean.ListBean> listBeen;
@@ -28,12 +28,12 @@ public class ListFragmentItemRvAdapter extends RecyclerView.Adapter<MyViewHolder
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return MyViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_recycler_item_fragment_list);
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return BaseViewHolder.onCreatMyViewHolder(context,parent, R.layout.item_recycler_item_fragment_list);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.setOnLineImage(R.id.iv_icon_item_fragment_list,listBeen.get(position).getCoverPath());
         holder.setText(R.id.tv_icon_item_fragment_list,listBeen.get(position).getTitle());
     }

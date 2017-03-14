@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/rv_item_rv_profile_image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/section_header"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/rv_item_rv_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textColor="@color/Black"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/rv_item_rv_profile_image"/>
+
+    <com.jieleo.xmly_plus.tools.DemoRecyclerView
+        android:id="@+id/rv_item_rv_profile_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv_item_rv_profile_image"/>
+</RelativeLayout>

@@ -1,17 +1,17 @@
-package com.jieleo.xmly_plus.adapter;
+package com.jieleo.xmly_plus.adapter.list_adapter;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.adapter.list_adapter.ListFragmentItemRvAdapter;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
-import com.jieleo.xmly_plus.tools.MyViewHolder;
+import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class ListFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerView
         RecyclerView.ViewHolder viewHolder =null;
         if (viewHolder==null){
             if (viewType==HEAD_TYPE){
-               viewHolder= MyViewHolder.onCreatMyViewHolder(context,parent,R.layout.item_head_recycler_fragment_list);
+               viewHolder= BaseViewHolder.onCreatMyViewHolder(context,parent,R.layout.item_head_recycler_fragment_list);
             }else {
                 View view = LayoutInflater.from(context).inflate(R.layout.item_recycler_fragment_list,parent,false);
                 viewHolder = new ListPageViewHolder(view);
@@ -68,8 +68,8 @@ public class ListFragmentPageRVAdapter extends RecyclerView.Adapter<RecyclerView
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int type  = getItemViewType(position);
         if (type==HEAD_TYPE){
-            MyViewHolder myViewHolder = (MyViewHolder) holder;
-            myViewHolder.setOnLineImage(R.id.iv_adv_head_fragment_list,listPageBean.getList().get(position).getCoverPath());
+            BaseViewHolder baseViewHolder = (BaseViewHolder) holder;
+            baseViewHolder.setOnLineImage(R.id.iv_adv_head_fragment_list,listPageBean.getList().get(position).getCoverPath());
         }else {
             ListPageViewHolder listPageViewHolder = (ListPageViewHolder) holder;
             ListFragmentItemRvAdapter listFragmentItemRvAdapter = new ListFragmentItemRvAdapter(context);
