@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.adapter;
+package com.jieleo.xmly_plus.adapter.live_adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,15 +13,15 @@ import java.util.List;
 /**
  * Created by liuHao on 17/3/10.
  */
-public class LiveFragmentFamousItemItemRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class LiveFragmentNormalItemItemRvAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private Context context;
-    private List<LivePageBean.FamousBean.ListBean> listBean;
+    private List<LivePageBean.NormalBean.ListBeanX> listBean;
 
-    public LiveFragmentFamousItemItemRvAdapter(Context context) {
+    public LiveFragmentNormalItemItemRvAdapter(Context context) {
         this.context = context;
     }
 
-    public void setListBean(List<LivePageBean.FamousBean.ListBean> listBean) {
+    public void setListBean(List<LivePageBean.NormalBean.ListBeanX> listBean) {
         this.listBean = listBean;
         notifyDataSetChanged();
     }
@@ -42,6 +42,6 @@ public class LiveFragmentFamousItemItemRvAdapter extends RecyclerView.Adapter<Ba
 
     @Override
     public int getItemCount() {
-        return listBean==null?0:listBean.size();
+        return listBean==null?0:3;
     }
 }

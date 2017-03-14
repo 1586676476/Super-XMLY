@@ -1,4 +1,4 @@
-package com.jieleo.xmly_plus.adapter;
+package com.jieleo.xmly_plus.adapter.list_adapter;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.adapter.list_adapter.ListFragmentItemRvAdapter;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 import com.jieleo.xmly_plus.tools.BaseViewHolder;
 

@@ -11,6 +11,9 @@ public class MyUrl {
     //ListPageFragment接口
     public static final String LIST_PAGE_FRAGMENT_URL = "http://mobile.ximalaya.com/mobile/discovery/v1/categories?channel=and-d10&device=android&picVersion=13&scale=2";
 
+    //LivePageFragment接口
+    public static final String LIVE_PAGE_FRAGMENT_URL = "http://mobile.ximalaya.com/mobile/discovery/v1/anchor/recommend?device=android&version=5.4.87";
+
 
     public static final String PLAY_MUSIC_HEAD_URL ="http://140.207.215.242/v1/track/ca/playpage/";
 
@@ -31,5 +34,6 @@ public class MyUrl {
     //热门页中间recycleview
     public static final String HOT_CENTER="http://mobile.ximalaya.com/mobile/discovery/v3/recommend/hotAndGuess?" +
             "code=43_220000_2203&device=android&version=5.4.87";
+
 
 }

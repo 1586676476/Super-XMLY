@@ -40,15 +40,15 @@
 
 
 
+
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".MyApp"
-        >
+        android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,7 +56,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".activity.PlayMusicActivity"/>
+        <activity android:name=".activity.LoginActivity">
 
 
         <!-- 声明云信后台服务，如需保持后台推送，使用独立进程效果会更好。 -->
@@ -100,6 +102,9 @@
         <meta-data
             android:name="com.netease.cosine.target.receiver"
             android:value="com.netease.nimlib.service.NimReceiver"/>
+
+
+        </activity>
     </application>
 
 </manifest>

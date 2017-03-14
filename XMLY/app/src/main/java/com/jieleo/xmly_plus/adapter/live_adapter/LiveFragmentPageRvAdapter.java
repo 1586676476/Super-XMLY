@@ -1,12 +1,15 @@
-package com.jieleo.xmly_plus.adapter;
+package com.jieleo.xmly_plus.adapter.live_adapter;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.adapter.live_adapter.LiveFragmentFamousItemRvAdapter;
+import com.jieleo.xmly_plus.adapter.live_adapter.LiveFragmentNormalRvAdapter;
 import com.jieleo.xmly_plus.model.bean.model_live_page.LivePageBean;
 
 /**
@@ -48,14 +51,23 @@ public class LiveFragmentPageRvAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         LiveViewHolder liveViewHolder = (LiveViewHolder) holder;
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
+        liveViewHolder.recyclerView.setLayoutManager(linearLayoutManager);
         if (position==0){
+            LiveFragmentFamousItemRvAdapter liveFragmentFamousItemRvAdapter = new LiveFragmentFamousItemRvAdapter(context);
+            liveViewHolder.recyclerView.setAdapter(liveFragmentFamousItemRvAdapter);
+            liveFragmentFamousItemRvAdapter.setFamousBeen(livePageBean.getFamous());
 
+        }else if (position==1){
+            LiveFragmentNormalRvAdapter liveFragmentNormalRvAdapter = new LiveFragmentNormalRvAdapter(context);
+            liveViewHolder.recyclerView.setAdapter(liveFragmentNormalRvAdapter);
+            liveFragmentNormalRvAdapter.setNormalBean(livePageBean.getNormal());
         }
 
     }
 
     @Override
     public int getItemCount() {
-        return 2;
+        return livePageBean==null?0:2;
     }
 }
