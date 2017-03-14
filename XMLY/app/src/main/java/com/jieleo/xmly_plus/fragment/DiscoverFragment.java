@@ -11,6 +11,7 @@ import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.adapter.discover_adapter.DisCoverAdapter;
 import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
 import com.jieleo.xmly_plus.presenter.persenter_discover_page.DisCoverPresenter;
+import com.jieleo.xmly_plus.tools.MyUrl;
 import com.jieleo.xmly_plus.view.DisCoverView;
 
 /**
@@ -27,9 +28,6 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
     private DisCoverAdapter disCoverAdapter;
     private DisCoverPresenter disCoverPresenter;
 
-    private String url="http://140.207.215.247/mobile/discovery/v1/square/list?cityCode=43_220000_2203" +
-            "&device=android&timestamp=1489059340075&version=5.4.87";
-
     @Override
     protected int bindLayout() {
         return R.layout.fragment_discover;
@@ -43,7 +41,7 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
 
         recyclerView= (RecyclerView) view.findViewById(R.id.discover_recyclerView);
         disCoverPresenter=new DisCoverPresenter(this);
-        disCoverPresenter.getDisCoverData(url);
+        disCoverPresenter.getDisCoverData(MyUrl.Discover);
     }
 
     @Override
