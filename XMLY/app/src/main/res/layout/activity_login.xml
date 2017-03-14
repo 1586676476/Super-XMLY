@@ -36,19 +36,20 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_user_name_aty_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:drawableLeft="@mipmap/ic_login_username" />
 
     <EditText
-
+        android:id="@+id/et_password_aty_login"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/ic_password" />
     <Button
+        android:id="@+id/btn_login_aty_login"
         android:layout_marginTop="10dp"
         android:textSize="16sp"
         android:background="#f88"
