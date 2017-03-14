@@ -21,6 +21,7 @@ public class MyUrl {
         return PLAY_MUSIC_HEAD_URL+id+PLAY_MUSIC_FOOT_URL+id;
     }
 
+
     //discover接口
     public static final String Discover="http://140.207.215.247/mobile/discovery/v1/square/list?cityCode=43_220000_2203" +
             "&device=android&timestamp=1489059340075&version=5.4.87";

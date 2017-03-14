@@ -10,6 +10,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters "armeabi-v7a", "x86","arm64-v8a","x86_64"
+        }
     }
     dependencies{
         compile 'com.youth.banner:banner:1.4.2'}
@@ -39,4 +43,13 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile 'com.netease.nimlib:basesdk:3.3.0'
+    // 音视频需要
+    compile 'com.netease.nimlib:avchat:3.3.0'
+    // 聊天室需要
+    compile 'com.netease.nimlib:chatroom:3.3.0'
+    // 实时会话服务需要
+    compile 'com.netease.nimlib:rts:3.3.0'
+
 }
