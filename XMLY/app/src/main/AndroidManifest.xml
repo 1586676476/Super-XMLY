@@ -52,7 +52,6 @@
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -60,6 +59,10 @@
         <activity android:name=".activity.PlayMusicActivity"/>
         <activity android:name=".activity.LoginActivity">
 
+
+            <meta-data
+                android:name="com.netease.nim.appKey"
+                android:value="04b97284171397f0d6f626e3ae8d047f" />
 
         <!-- 声明云信后台服务，如需保持后台推送，使用独立进程效果会更好。 -->
         <service
