@@ -14,9 +14,14 @@ import android.widget.Toast;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
 import java.util.ArrayList;
@@ -34,6 +39,7 @@ public class MapFragment extends BaseFragment {
 
     private LocationClient locationClient;
     private TextView textView;
+    private boolean isFirstLocation=true;
 
 
     @Override
@@ -46,6 +52,8 @@ public class MapFragment extends BaseFragment {
 
         mapView = (MapView) view.findViewById(R.id.fragment_map_mapView);
 //        textView = (TextView) view.findViewById(R.id.fragment_map_text);
+        baiduMap=mapView.getMap();
+        baiduMap.setMyLocationEnabled(true);
 
     }
 
@@ -70,10 +78,10 @@ public class MapFragment extends BaseFragment {
             getActivity().requestPermissions(permissions, 1);
         } else {
             //每隔5秒更新当前位置
-            //LocationClientOption option=new LocationClientOption();
-//            option.setScanSpan(5000);
-            //option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
-//            locationClient.setLocOption(option);
+            LocationClientOption option=new LocationClientOption();
+            option.setScanSpan(5000);
+            option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+            locationClient.setLocOption(option);
             locationClient.start();
 
         }
@@ -81,6 +89,23 @@ public class MapFragment extends BaseFragment {
 
     @Override
     protected void bindEvent() {
+
+    }
+
+    private void navigateTo(BDLocation location){
+        if (isFirstLocation){
+            LatLng ll=new LatLng(location.getLatitude(),location.getLongitude());
+            MapStatusUpdate update= MapStatusUpdateFactory.newLatLng(ll);
+            baiduMap.animateMapStatus(update);
+            update=MapStatusUpdateFactory.zoomTo(16f);
+            baiduMap.animateMapStatus(update);
+            isFirstLocation=false;
+        }
+        MyLocationData.Builder builder=new MyLocationData.Builder();
+        builder.latitude(location.getLatitude());
+        builder.longitude(location.getLongitude());
+        MyLocationData locationData=builder.build();
+        baiduMap.setMyLocationData(locationData);
 
     }
 
@@ -103,14 +128,17 @@ public class MapFragment extends BaseFragment {
                 currentPosition.append("网络");
             }
             textView.setText(currentPosition);
+            //移动到我的位置
+            if (bdLocation.getLocType()==BDLocation.TypeNetWorkLocation||
+                    bdLocation.getLocType()==BDLocation.TypeNetWorkLocation){
+                navigateTo(bdLocation);
+            }
         }
 
         @Override
         public void onConnectHotSpotMessage(String s, int i) {
 
         }
-
-
     }
 
     @Override
@@ -120,14 +148,12 @@ public class MapFragment extends BaseFragment {
                 if (grantResults.length > 0) {
                     for (int request : grantResults) {
                         if (request != PackageManager.PERMISSION_GRANTED) {
-                            Toast.makeText(getContext(), "111", Toast.LENGTH_SHORT).show();
                             getActivity().finish();
                             return;
                         }
                     }
                     locationClient.start();
                 } else {
-                    Toast.makeText(getContext(), "456", Toast.LENGTH_SHORT).show();
                     getActivity().finish();
                 }
                 break;
@@ -152,6 +178,7 @@ public class MapFragment extends BaseFragment {
         super.onDestroy();
         locationClient.stop();
         mapView.onDestroy();
+        baiduMap.setMyLocationEnabled(false);
     }
 
 }

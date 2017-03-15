@@ -53,4 +53,5 @@ dependencies {
     // 实时会话服务需要
     compile 'com.netease.nimlib:rts:3.3.0'
 
+    compile project(path: ':uikit')
 }

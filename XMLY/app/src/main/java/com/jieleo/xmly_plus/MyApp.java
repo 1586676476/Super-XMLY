@@ -7,9 +7,12 @@ import android.graphics.Color;
 import android.os.Environment;
 
 import com.jieleo.xmly_plus.tools.SystemUtil;
+import com.netease.nim.uikit.NimUIKit;
+import com.netease.nim.uikit.contact.core.util.ContactHelper;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.SDKOptions;
 import com.netease.nimlib.sdk.StatusBarNotificationConfig;
+import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
@@ -118,6 +121,8 @@ public  class MyApp extends Application{
     private LoginInfo loginInfo() {
         return null;
     }
+
+
 
 
 }
