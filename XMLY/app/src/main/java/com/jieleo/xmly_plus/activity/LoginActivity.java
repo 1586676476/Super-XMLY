@@ -6,19 +6,22 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.jieleo.xmly_plus.R;
+import com.netease.nimlib.sdk.AbortableFuture;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.RequestCallback;
 import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
+import com.netease.nim.uikit.NimUIKit;
 
 public class LoginActivity extends BaseActivity{
     private ImageView ivBack,ivQQ,ivSina;
-
+    private AbortableFuture<LoginInfo> loginRequest;
     private String account,token;
 
 //
     public void doLogin(){
         LoginInfo loginInfo =new LoginInfo(account,token);
+//        loginRequest=NimUIKit.doLogin(new LoginInfo())
         RequestCallback<LoginInfo> callback=new RequestCallback<LoginInfo>() {
             @Override
             public void onSuccess(LoginInfo param) {
