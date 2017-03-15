@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
-import com.jieleo.xmly_plus.adapter.ListFragmentPageRVAdapter;
+import com.jieleo.xmly_plus.adapter.list_adapter.ListFragmentPageRVAdapter;
 import com.jieleo.xmly_plus.fragment.BaseFragment;
 import com.jieleo.xmly_plus.model.bean.model_list_page.ListPageBean;
 import com.jieleo.xmly_plus.presenter.presenter_list_page.ListPagePresenter;
