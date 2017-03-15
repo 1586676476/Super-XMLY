@@ -25,17 +25,17 @@ public  class MyApp extends Application{
         context = getApplicationContext();
         NIMClient.init(this,null,null);
 
-<<<<<<< HEAD
+
         if(inMainProcess()){
             // 1、UI相关初始化操作
             // 2、相关Service调用
         }
-=======
+
 //        if(inMainProcess()){
 //            // 1、UI相关初始化操作
 //            // 2、相关Service调用
 //        }
->>>>>>> b222642dd2c2e5fe13bbfc40e0c00da84d5c86d4
+
 
     }
 

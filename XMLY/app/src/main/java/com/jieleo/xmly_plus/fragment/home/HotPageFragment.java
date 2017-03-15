@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.adapter.hot_adapter.HotAdapter;
 import com.jieleo.xmly_plus.adapter.hot_adapter.HotCenterAdapter;
 import com.jieleo.xmly_plus.fragment.BaseFragment;
 import com.jieleo.xmly_plus.model.bean.model_hot_page.HotBean;
@@ -35,14 +36,9 @@ import java.util.List;
 public class HotPageFragment extends BaseFragment implements HotView {
     private static final String TAG = "HotPageFragment";
 
-    private Banner banner;
     private HotPagePresenter hotPagePresenter;
-    private List<String> picture;
-
-    private DemoRecyclerView recycleView;
-    private HotCenterAdapter hotCenterAdapter;
-
-
+    private RecyclerView recyclerView;
+    private HotAdapter hotAdapter;
 
     @Override
     protected int bindLayout() {
@@ -51,48 +47,17 @@ public class HotPageFragment extends BaseFragment implements HotView {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycleView_fragment_hot);
+        hotAdapter = new HotAdapter(getContext());
 
-
-        banner = (Banner) view.findViewById(R.id.fragment_hot_banner);
         hotPagePresenter = new HotPagePresenter(this);
         hotPagePresenter.getHotdata(MyUrl.HOT_CENTER);
-        picture = new ArrayList<>();
-        banner();
-
-        recycleView = (DemoRecyclerView) view.findViewById(R.id.fragment_hot_recycleView);
-        hotCenterAdapter = new HotCenterAdapter(getContext());
-        LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        recycleView.setLayoutManager(manager);
-        recycleView.setAdapter(hotCenterAdapter);
-
-    }
-
-    private void banner() {
-        //设置轮播图属性
-        banner.setDelayTime(4000);
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-        banner.setBannerStyle(BannerConfig.LEFT);
-        banner.setImageLoader(new MyImageLoader());
-
-        NetTool.getInstance().startRequest(MyUrl.HOT_LUNBOTU, HotBean.class, new CallBack<HotBean>() {
-            @Override
-            public void onSuccess(HotBean response) {
-                for (int i = 0; i < response.getFocusImages().getList().size(); i++) {
-                    picture.add(response.getFocusImages().getList().get(i).getPic());
-                }
-                banner.setImages(picture);
-                banner.start();
-            }
-            @Override
-            public void onError(Throwable throwable) {
-
-            }
-        });
     }
 
     @Override
     protected void initData() {
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(hotAdapter);
     }
 
     @Override
@@ -102,21 +67,11 @@ public class HotPageFragment extends BaseFragment implements HotView {
 
     @Override
     public void getHotSuccess(HotCenterBean hotCenterBean) {
-        hotCenterAdapter.setHotCenterBean(hotCenterBean);
+        hotAdapter.setHotCenterBean(hotCenterBean);
     }
 
     @Override
     public void getHotError() {
 
     }
-
-    class MyImageLoader extends ImageLoader {
-
-        @Override
-        public void displayImage(Context context, Object path, ImageView imageView) {
-            Glide.with(context).load(path).into(imageView);
-        }
-    }
-
-
 }
