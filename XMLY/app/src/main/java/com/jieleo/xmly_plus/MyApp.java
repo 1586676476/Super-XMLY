@@ -12,6 +12,7 @@ import com.netease.nim.uikit.contact.core.util.ContactHelper;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.SDKOptions;
 import com.netease.nimlib.sdk.StatusBarNotificationConfig;
+import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
@@ -121,20 +122,5 @@ public  class MyApp extends Application{
 
 
 
-    private void initUIKit() {
-        // 初始化，使用 uikit 默认的用户信息提供者
-        NimUIKit.init(this);
 
-        // 设置地理位置提供者。如果需要发送地理位置消息，该参数必须提供。如果不需要，可以忽略。
-        NimUIKit.setLocationProvider(new NimDemoLocationProvider());
-
-        // 会话窗口的定制初始化。
-        SessionHelper.init();
-
-        // 通讯录列表定制初始化
-        ContactHelper.init();
-
-        // 添加自定义推送文案以及选项，请开发者在各端（Android、IOS、PC、Web）消息发送时保持一致，以免出现通知不一致的情况
-        // NimUIKit.CustomPushContentProvider(new DemoPushContentProvider());
-    }
 }

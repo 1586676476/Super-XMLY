@@ -1,5 +1,6 @@
 package com.jieleo.xmly_plus.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,6 +8,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.activity.LoginActivity;
+import com.jieleo.xmly_plus.activity.MainActivity;
 
 /**
  * Created by yuyongjie on 17/3/9.
@@ -84,6 +87,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.iv_to_other_fragment_user:
                 //点击更多
+                Intent intent=new Intent(getActivity(),LoginActivity.class);
+                getActivity().startActivity(intent);
                 break;
             case R.id.rl_record_fragment_user:
                 //录音的点击事件
