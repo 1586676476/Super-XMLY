@@ -113,21 +113,21 @@ public class MapFragment extends BaseFragment {
 
         @Override
         public void onReceiveLocation(BDLocation bdLocation) {
-            StringBuilder currentPosition = new StringBuilder();
-            currentPosition.append("纬度").append(bdLocation.getLatitude()).append("\n");
-            currentPosition.append("经度").append(bdLocation.getLongitude()).append("\n");
-            currentPosition.append("国家").append(bdLocation.getCountry()).append("\n");
-            currentPosition.append("省").append(bdLocation.getProvince()).append("\n");
-            currentPosition.append("市").append(bdLocation.getCity()).append("\n");
-            currentPosition.append("区").append(bdLocation.getDistrict()).append("\n");
-
-            currentPosition.append("定位方式");
-            if (bdLocation.getLocType() == BDLocation.TypeGpsLocation) {
-                currentPosition.append("GPS");
-            } else if (bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) {
-                currentPosition.append("网络");
-            }
-            textView.setText(currentPosition);
+//            StringBuilder currentPosition = new StringBuilder();
+//            currentPosition.append("纬度").append(bdLocation.getLatitude()).append("\n");
+//            currentPosition.append("经度").append(bdLocation.getLongitude()).append("\n");
+//            currentPosition.append("国家").append(bdLocation.getCountry()).append("\n");
+//            currentPosition.append("省").append(bdLocation.getProvince()).append("\n");
+//            currentPosition.append("市").append(bdLocation.getCity()).append("\n");
+//            currentPosition.append("区").append(bdLocation.getDistrict()).append("\n");
+//
+//            currentPosition.append("定位方式");
+//            if (bdLocation.getLocType() == BDLocation.TypeGpsLocation) {
+//                currentPosition.append("GPS");
+//            } else if (bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) {
+//                currentPosition.append("网络");
+//            }
+//            textView.setText(currentPosition);
             //移动到我的位置
             if (bdLocation.getLocType()==BDLocation.TypeNetWorkLocation||
                     bdLocation.getLocType()==BDLocation.TypeNetWorkLocation){

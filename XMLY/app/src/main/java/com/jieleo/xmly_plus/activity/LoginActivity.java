@@ -2,6 +2,7 @@ package com.jieleo.xmly_plus.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,18 +11,18 @@ import android.widget.Toast;
 
 import com.jieleo.xmly_plus.R;
 import com.netease.nimlib.sdk.AbortableFuture;
-import com.netease.nimlib.sdk.NIMClient;
-import com.netease.nimlib.sdk.RequestCallback;
-import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
-import com.netease.nim.uikit.NimUIKit;
 
 public class LoginActivity extends BaseActivity {
     private ImageView ivBack, ivQQ, ivSina;
     private EditText usernameTv, passwordTv;
     private Button loginBtn;
+
     private AbortableFuture<LoginInfo> loginRequest;
     private String account, token;
+
+    private String account,token;
+
 
 
     public void doLogin() {
@@ -54,6 +55,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             protected void initData() {
+
 
             }
 
@@ -103,6 +105,26 @@ public class LoginActivity extends BaseActivity {
                 };
                 NIMClient.getService(AuthService.class).login(loginInfo).setCallback(callback);
             }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_back_login_activity:
+                finish();
+                break;
+            case R.id.iv_qq:
+                break;
+            case R.id.iv_weibo:
+                break;
+            case R.id.btn_login_aty_login:
+                break;
+        }
+    }
+
+
+
+
+
 
 
         }
