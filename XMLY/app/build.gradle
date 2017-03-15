@@ -23,6 +23,8 @@ android {
         }
     }
 
+
+
 }
 
 dependencies {
@@ -41,15 +43,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    //    compile 'com.netease.nimlib:basesdk:3.3.0'
-    //    // 音视频需要
-    //    compile 'com.netease.nimlib:avchat:3.3.0'
-    //    // 聊天室需要
-    //    compile 'com.netease.nimlib:chatroom:3.3.0'
-    //    // 实时会话服务需要
-    //    compile 'com.netease.nimlib:rts:3.3.0'
-    //compile project(path: ':uikit')
     compile files('libs/cosinesdk.jar')
-    compile files('libs/nim-basesdk-3.4.0.jar')
-    compile files('libs/nim-chatroom-3.4.0.jar')
 }
