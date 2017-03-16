@@ -195,7 +195,7 @@
             <TextView
                 android:id="@+id/tv_more_fragment_user"
                 android:layout_below="@id/tv_free_flux_fragment_user"
-                android:text="     更多"
+                android:text="     生成自己的二维码"
                 android:drawableLeft="@mipmap/album_edit_more"
                 android:layout_marginTop="1dp"
                 style="@style/user_page_text_style"/>
@@ -213,6 +213,11 @@
                 android:layout_marginTop="1dp"
                 android:drawableLeft="@mipmap/ic_wd_setting"
                 style="@style/user_page_text_style"/>
+            <ImageView
+                android:id="@+id/iv_qr_fragment_user"
+                android:layout_below="@id/tv_setting_fragment_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

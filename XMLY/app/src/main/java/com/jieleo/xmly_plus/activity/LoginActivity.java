@@ -12,18 +12,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.jieleo.xmly_plus.R;
-import com.netease.nimlib.sdk.AbortableFuture;
-import com.netease.nimlib.sdk.auth.LoginInfo;
 
 import java.util.HashMap;
 
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.PlatformActionListener;
-import cn.sharesdk.framework.PlatformDb;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.sina.weibo.SinaWeibo;
-import cn.sharesdk.tencent.qq.QQ;
-import java.util.HashMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.PlatformDb;
@@ -37,7 +28,6 @@ public class LoginActivity extends BaseActivity {
     private EditText usernameTv, passwordTv;
     private Button loginBtn;
 
-    private AbortableFuture<LoginInfo> loginRequest;
     private String account, token;
 
 

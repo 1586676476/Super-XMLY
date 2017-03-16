@@ -1,6 +1,8 @@
 package com.jieleo.xmly_plus.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +13,9 @@ import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.activity.LoginActivity;
 
 import com.jieleo.xmly_plus.activity.MainActivity;
+import com.jieleo.xmly_plus.activity.WebActivity;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
+import com.xys.libzxing.zxing.encoding.EncodingUtils;
 
 
 /**
@@ -19,7 +24,7 @@ import com.jieleo.xmly_plus.activity.MainActivity;
 
 
 public class UserFragment extends BaseFragment implements View.OnClickListener {
-    private ImageView headIv,scanIv,toOtherIv;
+    private ImageView headIv,scanIv,toOtherIv,createQRIv;
     private RelativeLayout recordRl,liveRl;
     private TextView userNameTv,introduceTv,historyTv,rssTv,downloadTv,msgTv,buyTv,walletTv,spreadTv,likeTv,freeFluxTv,moreTv,callBackTv,settingTv;
     @Override
@@ -48,6 +53,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         moreTv = (TextView) view.findViewById(R.id.tv_more_fragment_user);
         callBackTv = (TextView) view.findViewById(R.id.tv_callback_fragment_user);
         settingTv = (TextView) view.findViewById(R.id.tv_setting_fragment_user);
+        createQRIv= (ImageView) view.findViewById(R.id.iv_qr_fragment_user);
     }
 
     @Override
@@ -88,6 +94,10 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.iv_scan_fragment_user:
                 //扫描二维码的点击事件
+                Intent openCamera =new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(openCamera,0);
+
+
                 break;
             case R.id.iv_to_other_fragment_user:
                 //点击更多
@@ -135,13 +145,31 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.tv_more_fragment_user:
                 //更多的点击事件
+                String string ="https://wx.tenpay.com/f2f?t=AQAAAFpkOSeE8bc%2FsY2B%2BFFZuts%3D";
+                BitmapFactory.Options options=new BitmapFactory.Options();
+                options.inSampleSize=3;
+                Bitmap bitmap= EncodingUtils.createQRCode(string,500,500, BitmapFactory.decodeResource(getResources(),R.mipmap.imgsishuai_1,options));
+                createQRIv.setImageBitmap(bitmap);
                 break;
             case R.id.tv_callback_fragment_user:
                 //意见反馈的点击事件
                 break;
-            case R.id.tv_setting_fragment_user:
+            case R.id.
+                    :
                 //设置的点击事件
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==-1){
+            Bundle bundle=data.getExtras();
+            String scanResult=bundle.getString("result");
+            Intent intent=new Intent(getActivity(), WebActivity.class);
+            intent.putExtra("url",scanResult);
+            startActivity(intent);
         }
     }
 }
