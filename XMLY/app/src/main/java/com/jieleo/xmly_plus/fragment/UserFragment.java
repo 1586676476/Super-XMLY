@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.activity.LoginActivity;
 
-import com.jieleo.xmly_plus.activity.MainActivity;
 import com.jieleo.xmly_plus.activity.WebActivity;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 import com.xys.libzxing.zxing.encoding.EncodingUtils;
@@ -154,8 +153,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
             case R.id.tv_callback_fragment_user:
                 //意见反馈的点击事件
                 break;
-            case R.id.
-                    :
+            case R.id.tv_setting_fragment_user:
                 //设置的点击事件
                 break;
         }
