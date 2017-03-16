@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/item_rv_fragment_hot_below_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:id="@+id/item_rv_fragment_hot_below_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/item_rv_fragment_hot_below_text"
+        />
+    <TextView
+        android:id="@+id/item_rv_fragment_hot_below_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_rv_fragment_hot_below_image"
+        android:text="123"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/item_rv_fragment_hot_below_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/n"
+        android:layout_below="@id/item_rv_fragment_hot_below_title"
+        android:layout_marginLeft="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/item_rv_fragment_hot_below_right"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@mipmap/arrow_black_right"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+       />
+    <TextView
+        android:id="@+id/item_rv_fragment_hot_below_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更多"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/item_rv_fragment_hot_below_right"
+        android:layout_marginRight="5dp"
+        />
+
+
+</RelativeLayout>

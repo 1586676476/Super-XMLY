@@ -6,11 +6,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.jieleo.xmly_plus.R;
+import com.netease.nimlib.sdk.AbortableFuture;
+import com.netease.nimlib.sdk.auth.LoginInfo;
 
+public class LoginActivity extends BaseActivity {
+    private ImageView ivBack, ivQQ, ivSina;
+    private EditText usernameTv, passwordTv;
+    private Button loginBtn;
+
+    private AbortableFuture<LoginInfo> loginRequest;
+    private String account, token;
+
+
+
+
+
+<<<<<<< HEAD
 import java.util.HashMap;
 
 import cn.sharesdk.framework.Platform;
@@ -23,6 +40,8 @@ import cn.sharesdk.tencent.qq.QQ;
 public class LoginActivity extends BaseActivity{
     private ImageView ivBack,ivQQ,ivSina;
     private static final String TAG = "LoginActivity";
+=======
+>>>>>>> f2482c7ab1e7485db37ea03ef32cd1697729cd10
 
     @Override
     protected int bindLayout() {
@@ -34,10 +53,14 @@ public class LoginActivity extends BaseActivity{
         ivBack = (ImageView) findViewById(R.id.iv_back_login_activity);
         ivQQ = (ImageView) findViewById(R.id.iv_qq);
         ivSina = (ImageView) findViewById(R.id.iv_weibo);
+        usernameTv = bindView(R.id.et_user_name_aty_login);
+        passwordTv = bindView(R.id.et_password_aty_login);
+        loginBtn = bindView(R.id.btn_login_aty_login);
     }
 
     @Override
     protected void initData() {
+
 
     }
 
@@ -46,6 +69,7 @@ public class LoginActivity extends BaseActivity{
         ivBack.setOnClickListener(this);
         ivQQ.setOnClickListener(this);
         ivSina.setOnClickListener(this);
+        loginBtn.setOnClickListener(this);
     }
 
     @Override
@@ -151,6 +175,11 @@ public class LoginActivity extends BaseActivity{
 //移除授权
 //weibo.removeAccount(true);
                 break;
+            case R.id.btn_login_aty_login:
+                break;
         }
     }
+
+
+
 }

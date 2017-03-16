@@ -60,7 +60,7 @@ public class HomeFragment extends BaseFragment implements TabView, View.OnClickL
         fragments.add(new ProfilePageFragment());
         fragments.add(new LivePageFragment());
         viewPager.setAdapter(homeFragmentPageAdapter);
-        tabLayout.setupWithViewPager(viewPager, true);
+        tabLayout.setupWithViewPager(viewPager);
         homeFragmentPageAdapter.setFragments(fragments);
 
         tabPresenter.getTabWord(MyUrl.TAB_WORDS);
