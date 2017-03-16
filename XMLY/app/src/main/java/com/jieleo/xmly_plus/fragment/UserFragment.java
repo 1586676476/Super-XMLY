@@ -9,10 +9,9 @@ import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.activity.LoginActivity;
-<<<<<<< HEAD
-=======
+
 import com.jieleo.xmly_plus.activity.MainActivity;
->>>>>>> f2482c7ab1e7485db37ea03ef32cd1697729cd10
+
 
 /**
  * Created by yuyongjie on 17/3/9.
@@ -92,8 +91,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.iv_to_other_fragment_user:
                 //点击更多
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                getActivity().startActivity(intent);
+                Intent intent1=new Intent(getActivity(),LoginActivity.class);
+                getActivity().startActivity(intent1);
                 break;
             case R.id.rl_record_fragment_user:
                 //录音的点击事件
