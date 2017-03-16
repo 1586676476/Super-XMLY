@@ -9,4 +9,5 @@ import com.jieleo.xmly_plus.model.bean.model_play_music.PlayMusicBean;
 
 public interface IPlayMusicView {
     void showMusicData(PlayMusicBean bean);
+    void showNotification(PlayMusicBean bean);
 }

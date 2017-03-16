@@ -32,4 +32,18 @@ public class PlayMusicPresenter {
             }
         });
     }
+
+    public void getNotifiCation(String url){
+        mPlayMusicModel.getMusicData(url, new IPlayMusicListener() {
+            @Override
+            public void getMusicDataSuccess(PlayMusicBean bean) {
+                mIPlayMusicView.showMusicData(bean);
+            }
+
+            @Override
+            public void getMusicDataFailed() {
+
+            }
+        });
+    }
 }

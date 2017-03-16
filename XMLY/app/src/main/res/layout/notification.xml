@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/notification_largeImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/notification_music_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/notification_largeImage"
+        android:text="123"
+        />
+    <TextView
+        android:id="@+id/notification_music_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notification_music_title"
+        android:text="456"
+        android:layout_toRightOf="@id/notification_largeImage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:id="@+id/notification_music_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/notify_btn_play2_pressed"
+        android:background="@color/White"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:id="@+id/notification_music_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/notify_btn_next_pressed"
+        android:background="@color/White"
+        android:layout_toRightOf="@id/notification_music_play"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+</RelativeLayout>

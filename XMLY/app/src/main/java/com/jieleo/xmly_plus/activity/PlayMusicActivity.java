@@ -1,11 +1,16 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.RemoteViews;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -92,6 +97,12 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView {
 
     private PlayMusicPresenter mPlayMusicPresenter;
     private PlayMusicRecommendRecyclerViewAdapter recmmendAdapter;
+    private Notification.Builder builder;
+    private NotificationManager notificationManager;
+    private RemoteViews remoteViews;
+    private Notification notification;
+    private MediaPlayer mediaPlayer;
+
 
     @Override
     protected int bindLayout() {
@@ -189,5 +200,19 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView {
     @Override
     public void showMusicData(PlayMusicBean bean) {
         recmmendAdapter.setBeen(bean.getAssociationAlbumsInfo());
+    }
+    //显示notification
+    @Override
+    public void showNotification(PlayMusicBean bean) {
+//        //设置notification
+//        builder=new Notification.Builder(this);
+//        notificationManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//        remoteViews=new RemoteViews(getPackageName(),R.layout.notification);
+//        //这个notification会一直呆在通知栏上面
+//        notification.flags=Notification.FLAG_ONGOING_EVENT;
+
+
+
+
     }
 }
