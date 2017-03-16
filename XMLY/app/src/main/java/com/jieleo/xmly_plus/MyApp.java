@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Environment;
 import com.baidu.mapapi.SDKInitializer;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * Created by liuHao on 17/3/9.
  */
@@ -18,7 +20,11 @@ public  class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+
+        ShareSDK.initSDK(context);
+
         SDKInitializer.initialize(getContext());
+
 
 //        if(inMainProcess()){
 //            // 1、UI相关初始化操作

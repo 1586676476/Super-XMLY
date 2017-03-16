@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.activity.LoginActivity;
+<<<<<<< HEAD
+=======
 import com.jieleo.xmly_plus.activity.MainActivity;
+>>>>>>> f2482c7ab1e7485db37ea03ef32cd1697729cd10
 
 /**
  * Created by yuyongjie on 17/3/9.
@@ -81,6 +84,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.iv_head_fragment_user:
                 //头像的点击事件
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.iv_scan_fragment_user:
                 //扫描二维码的点击事件
