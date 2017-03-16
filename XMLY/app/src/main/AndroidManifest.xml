@@ -52,7 +52,6 @@
 
 
 
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -86,7 +85,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".activity.PlayMusicActivity" />
         <activity android:name=".activity.LoginActivity"/>
         <activity
@@ -108,14 +106,14 @@
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-=======
 
-        <activity android:name=".activity.PlayMusicActivity"/>
+
+
 
         <service android:name="com.baidu.location.f" android:enabled="true"
             android:process=":remote"></service>
 
-        <activity android:name=".activity.LoginActivity">
+
 
             <!-- 设置环信应用的AppKey -->
             <meta-data android:name="EASEMOB_APPKEY"  android:value="1195170315115486#myxmly" />
@@ -137,7 +135,7 @@
 
 
 
->>>>>>> f2482c7ab1e7485db37ea03ef32cd1697729cd10
+
         </activity>
     </application>
 
