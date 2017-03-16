@@ -51,7 +51,6 @@ public class HotBelowAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: "+ hotCenterBean.getHotRecommends().getList().size());
         return hotCenterBean != null ? hotCenterBean.getHotRecommends().getList().size() : 0;
     }
 

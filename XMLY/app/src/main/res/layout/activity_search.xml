@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/activity_search_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/arrow_orange_left"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="15dp"/>
+
+    <EditText
+        android:id="@+id/activity_search_editText"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/activity_search_back"
+        android:background="@drawable/edittext"
+        android:hint="大秦帝国"
+        />
+
+    <TextView
+        android:id="@+id/activity_search_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="搜索"
+        android:textColor="@color/RED"
+        android:layout_toRightOf="@id/activity_search_editText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_search_back"
+        android:text="大家都在搜"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_search_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_search_back"
+        android:layout_marginTop="40dp"/>
+
+</RelativeLayout>

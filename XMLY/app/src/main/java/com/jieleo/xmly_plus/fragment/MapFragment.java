@@ -11,6 +11,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -24,6 +25,7 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class MapFragment extends BaseFragment {
 
     private LocationClient locationClient;
     private TextView textView;
-    private boolean isFirstLocation=true;
+    private boolean isFirstLocation = true;
 
 
     @Override
@@ -51,7 +53,7 @@ public class MapFragment extends BaseFragment {
     protected void initView(View view, Bundle savedInstanceState) {
 
         mapView = (MapView) view.findViewById(R.id.fragment_map_mapView);
-//        textView = (TextView) view.findViewById(R.id.fragment_map_text);
+        //textView = (TextView) view.findViewById(R.id.fragment_map_text);
         baiduMap=mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
 
@@ -78,7 +80,7 @@ public class MapFragment extends BaseFragment {
             getActivity().requestPermissions(permissions, 1);
         } else {
             //每隔5秒更新当前位置
-            LocationClientOption option=new LocationClientOption();
+            LocationClientOption option = new LocationClientOption();
             option.setScanSpan(5000);
             option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
             locationClient.setLocOption(option);
@@ -92,19 +94,19 @@ public class MapFragment extends BaseFragment {
 
     }
 
-    private void navigateTo(BDLocation location){
-        if (isFirstLocation){
-            LatLng ll=new LatLng(location.getLatitude(),location.getLongitude());
-            MapStatusUpdate update= MapStatusUpdateFactory.newLatLng(ll);
+    private void navigateTo(BDLocation location) {
+        if (isFirstLocation) {
+            LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
+            MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
             baiduMap.animateMapStatus(update);
-            update=MapStatusUpdateFactory.zoomTo(16f);
+            update = MapStatusUpdateFactory.zoomTo(16f);
             baiduMap.animateMapStatus(update);
-            isFirstLocation=false;
+            isFirstLocation = false;
         }
-        MyLocationData.Builder builder=new MyLocationData.Builder();
+        MyLocationData.Builder builder = new MyLocationData.Builder();
         builder.latitude(location.getLatitude());
         builder.longitude(location.getLongitude());
-        MyLocationData locationData=builder.build();
+        MyLocationData locationData = builder.build();
         baiduMap.setMyLocationData(locationData);
 
     }
@@ -129,8 +131,8 @@ public class MapFragment extends BaseFragment {
 //            }
 //            textView.setText(currentPosition);
             //移动到我的位置
-            if (bdLocation.getLocType()==BDLocation.TypeNetWorkLocation||
-                    bdLocation.getLocType()==BDLocation.TypeNetWorkLocation){
+            if (bdLocation.getLocType() == BDLocation.TypeNetWorkLocation ||
+                    bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) {
                 navigateTo(bdLocation);
             }
         }
@@ -160,6 +162,7 @@ public class MapFragment extends BaseFragment {
             default:
         }
     }
+
     //这三种方法是释放资源
     @Override
     public void onResume() {

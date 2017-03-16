@@ -45,7 +45,6 @@ public class HotBelowItemAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: " +listBeanXXXXX.getList().size());
         return listBeanXXXXX!=null?3:0;
     }
 }

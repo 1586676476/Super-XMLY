@@ -1,5 +1,7 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
@@ -108,6 +110,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         }
         fragmentTransaction.commitAllowingStateLoss();
     }
+
 }
 
 

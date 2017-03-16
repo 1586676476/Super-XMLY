@@ -1,5 +1,6 @@
 package com.jieleo.xmly_plus.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.activity.SearchActivity;
 import com.jieleo.xmly_plus.adapter.discover_adapter.DisCoverAdapter;
 import com.jieleo.xmly_plus.model.bean.model_discover.DisCoverBean;
 import com.jieleo.xmly_plus.presenter.persenter_discover_page.DisCoverPresenter;
@@ -64,6 +66,8 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.merge_search:
+                Intent intent=new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
                 break;
             case R.id.merge_history:
                 break;

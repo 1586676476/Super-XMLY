@@ -20,9 +20,7 @@ public  class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
-
         ShareSDK.initSDK(context);
-
         SDKInitializer.initialize(getContext());
 
 
