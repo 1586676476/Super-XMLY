@@ -1,6 +1,7 @@
 package com.jieleo.xmly_plus.adapter.hot_adapter;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,17 +39,19 @@ public class HotBelowAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
+        holder.setText(R.id.item_rv_fragment_hot_below_text,
+                hotCenterBean.getHotRecommends().getList().get(position).getTitle());
         HotBelowItemAdapter adapter = new HotBelowItemAdapter(context);
         RecyclerView itemRv = holder.getView(R.id.fragment_hot_below_item_recycleView);
-        adapter.setHotCenterBean(hotCenterBean);
-        itemRv.setLayoutManager(new LinearLayoutManager(context));
+        adapter.setHotCenterBean(hotCenterBean.getHotRecommends().getList().get(position));
+        itemRv.setLayoutManager(new GridLayoutManager(context, 3));
         itemRv.setAdapter(adapter);
 
     }
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: "+ hotCenterBean.getHotRecommends().getList().get(0).getList().size());
+        Log.e(TAG, "getItemCount: "+ hotCenterBean.getHotRecommends().getList().size());
         return hotCenterBean != null ? hotCenterBean.getHotRecommends().getList().size() : 0;
     }
 

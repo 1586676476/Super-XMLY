@@ -15,11 +15,11 @@ import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 public class HotBelowItemAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private static final String TAG = "HotBelowItemAdapter";
-    private HotCenterBean hotCenterBean;
+    private HotCenterBean.HotRecommendsBean.ListBeanXXXXX listBeanXXXXX;
     private Context context;
 
-    public void setHotCenterBean(HotCenterBean hotCenterBean) {
-        this.hotCenterBean = hotCenterBean;
+    public void setHotCenterBean(HotCenterBean.HotRecommendsBean.ListBeanXXXXX listBeanXXXXX) {
+        this.listBeanXXXXX = listBeanXXXXX;
         notifyDataSetChanged();
     }
 
@@ -36,18 +36,16 @@ public class HotBelowItemAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public void onBindViewHolder(BaseViewHolder holder, int position) {
 
         holder.setOnLineImage(R.id.item_rv_fragment_hot_below_image,
-                hotCenterBean.getHotRecommends().getList().get(0).getList().get(position).getAlbumCoverUrl290());
-        holder.setText(R.id.item_rv_fragment_hot_below_text,
-                hotCenterBean.getHotRecommends().getList().get(position).getTitle());
+                listBeanXXXXX.getList().get(position).getAlbumCoverUrl290());
         holder.setText(R.id.item_rv_fragment_hot_below_title,
-                hotCenterBean.getHotRecommends().getList().get(0).getList().get(position).getTitle());
+                listBeanXXXXX.getList().get(position).getTitle());
         holder.setText(R.id.item_rv_fragment_hot_below_content,
-                hotCenterBean.getHotRecommends().getList().get(0).getList().get(position).getTags());
+                listBeanXXXXX.getList().get(position).getTags());
     }
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "getItemCount: " );
-        return hotCenterBean!=null?3:0;
+        Log.e(TAG, "getItemCount: " +listBeanXXXXX.getList().size());
+        return listBeanXXXXX!=null?3:0;
     }
 }
