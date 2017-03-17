@@ -27,6 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/tv_to_register_aty_login"
             android:textColor="#f88"
             android:gravity="center"
             android:textSize="16sp"

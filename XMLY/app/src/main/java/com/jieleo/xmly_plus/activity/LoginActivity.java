@@ -1,5 +1,6 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jieleo.xmly_plus.R;
@@ -27,8 +29,8 @@ public class LoginActivity extends BaseActivity {
     private ImageView ivBack, ivQQ, ivSina;
     private EditText usernameTv, passwordTv;
     private Button loginBtn;
-
     private String account, token;
+    private TextView mTextView;
 
 
         @Override
@@ -44,6 +46,12 @@ public class LoginActivity extends BaseActivity {
             usernameTv = bindView(R.id.et_user_name_aty_login);
             passwordTv = bindView(R.id.et_password_aty_login);
             loginBtn = bindView(R.id.btn_login_aty_login);
+            findViewById(R.id.tv_to_register_aty_login).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                }
+            });
         }
 
         @Override
