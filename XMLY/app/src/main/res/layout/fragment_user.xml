@@ -144,7 +144,7 @@
                 android:layout_height="30dp">
                 <TextView
                     android:drawableLeft="@mipmap/ic_jmgl"
-                    android:text="主播中心"
+                    android:text="你说我搜"
                     android:gravity="center"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
