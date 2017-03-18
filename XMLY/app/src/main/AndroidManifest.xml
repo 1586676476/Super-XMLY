@@ -26,7 +26,7 @@
 
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!--//地图包、搜索包需要的基础权限-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -106,6 +106,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
 
+        </activity>
             <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
             <intent-filter>
                 <data android:scheme="tencent100371282"/>
@@ -123,20 +124,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
-            <service android:name="com.baidu.location.f" android:enabled="true"
-            android:process=":remote"/>
+
 
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
 
 
-        </activity>
         <activity android:name=".activity.WebActivity"/>
-
-
-
-
         <service android:name="com.amap.api.location.APSService"/>
 
 

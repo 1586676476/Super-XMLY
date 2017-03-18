@@ -2,6 +2,13 @@ package com.jieleo.xmly_plus;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Environment;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
+
+import cn.sharesdk.framework.ShareSDK;
 
 import cn.smssdk.SMSSDK;
 
@@ -16,7 +23,9 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
-        SMSSDK.initSDK(this,"1c2e614253121","04b030b1431b12b815a028c90da8ef2f");
+        ShareSDK.initSDK(context);
+        SpeechUtility.createUtility(this, SpeechConstant.APPID+"=58ca851b");
+
     }
 
     @Override
