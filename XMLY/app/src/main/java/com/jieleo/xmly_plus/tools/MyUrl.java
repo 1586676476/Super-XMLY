@@ -39,4 +39,6 @@ public class MyUrl {
     public static final String MVFragment_str_pre ="http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.7.3.0&channel=xiaomi&operator=3&provider=11%2C12&method=baidu.ting.mv.playMV&format=json&mv_id=";
     public static final String MVFragment_str_last = "&song_id=&definition=0";
     public static final String VIDEO_NEW_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.8.1&channel=xiaomi&operator=-1&provider=11%2C12&method=baidu.ting.mv.searchMV&format=json&order=1&page_num=1&page_size=20&query=%E5%85%A8%E9%83%A8 ";
+    //视频接口
+    public static final String JIECAO=" http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
 }
