@@ -25,7 +25,7 @@ public class MyApp extends Application {
         context = getApplicationContext();
         ShareSDK.initSDK(context);
         SpeechUtility.createUtility(this, SpeechConstant.APPID+"=58ca851b");
-        SMSSDK.initSDK(this,"1c2e614253121","04b030b1431b12b815a028c90da8ef2f");
+
     }
 
     @Override

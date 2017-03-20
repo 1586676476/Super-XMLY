@@ -1,10 +1,10 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.tools.SPUtils;
 
 import java.util.HashMap;
+import java.util.zip.Inflater;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -31,6 +34,7 @@ public class LoginActivity extends BaseActivity {
     private Button loginBtn;
     private String account, token;
     private TextView mTextView;
+    private FinishBroadCastReciver mReciver;
 
 
         @Override
@@ -46,17 +50,14 @@ public class LoginActivity extends BaseActivity {
             usernameTv = bindView(R.id.et_user_name_aty_login);
             passwordTv = bindView(R.id.et_password_aty_login);
             loginBtn = bindView(R.id.btn_login_aty_login);
-            findViewById(R.id.tv_to_register_aty_login).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-                }
-            });
+            findViewById(R.id.tv_to_register_aty_login).setOnClickListener(this);
         }
 
         @Override
         protected void initData() {
-
+            mReciver=new FinishBroadCastReciver();
+            IntentFilter intentFilter=new IntentFilter("finish");
+            registerReceiver(mReciver,intentFilter);
 
         }
 
@@ -173,9 +174,33 @@ public class LoginActivity extends BaseActivity {
                     break;
                 case R.id.btn_login_aty_login:
                     break;
+
+                case R.id.tv_to_register_aty_login:
+                    Intent intent =new Intent(this,RegisterActivity.class);
+                    if (!usernameTv.getText().toString().isEmpty()){
+                        SPUtils.put(MyApp.getContext(),"phoneNum",usernameTv.getText().toString());
+                    }else {
+                    SPUtils.put(MyApp.getContext(),"phoneNum","");
+                    }
+                    startActivity(intent);
+                    break;
             }
         }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mReciver);
     }
+
+    class FinishBroadCastReciver extends BroadcastReceiver{
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        }
+
+}
 
 
