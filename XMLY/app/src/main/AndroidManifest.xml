@@ -82,7 +82,7 @@
         android:theme="@style/AppTheme">
 
         <meta-data android:name="com.amap.api.v2.apikey"
-            android:value="4a514ddcb61bbbb2a1bc9cfbc9a804a4">
+            android:value="4749ac2bea8de1582b6cd4bdae20292f">
             //开发者申请的key
         </meta-data>
 
@@ -100,7 +100,7 @@
         <activity android:name=".activity.SearchActivity"/>
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.JieCaoPlayerActivity"/>
-        <activity android:name=".activity.VatimaioActivity"/>
+
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"

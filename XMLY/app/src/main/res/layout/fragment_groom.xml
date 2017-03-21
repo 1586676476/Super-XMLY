@@ -9,11 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="节操"/>
-    <Button
-        android:id="@+id/fragment_groom_vitamio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="vitamio" />
 
     <com.androidkun.PullToRefreshRecyclerView
         android:id="@+id/rv_list_video"

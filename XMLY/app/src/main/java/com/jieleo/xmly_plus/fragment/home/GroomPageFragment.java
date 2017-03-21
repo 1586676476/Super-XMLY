@@ -11,7 +11,6 @@ import com.androidkun.PullToRefreshRecyclerView;
 import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.activity.JieCaoPlayerActivity;
-import com.jieleo.xmly_plus.activity.VatimaioActivity;
 import com.jieleo.xmly_plus.adapter.GroomPageRvAdapter;
 import com.jieleo.xmly_plus.fragment.BaseFragment;
 import com.jieleo.xmly_plus.model.bean.model_groom_page.VideoListBean;
@@ -29,7 +28,7 @@ public class GroomPageFragment extends BaseFragment implements GroomView,MyRecyc
     private GroomPageRvAdapter groomPageRvAdapter;
     private GroomPagePresenter groomPagePresenter;
     private VideoListBean videoListBean;
-    private Button jiecao, vitamio;
+    private Button jiecao;
 
     @Override
     protected int bindLayout() {
@@ -40,7 +39,7 @@ public class GroomPageFragment extends BaseFragment implements GroomView,MyRecyc
     protected void initView(View view, Bundle savedInstanceState) {
         recyclerView = (PullToRefreshRecyclerView) view.findViewById(R.id.rv_list_video);
         jiecao = (Button) view.findViewById(R.id.fragment_groom_jiecao);
-        vitamio = (Button) view.findViewById(R.id.fragment_groom_vitamio);
+
     }
 
     @Override
@@ -51,7 +50,7 @@ public class GroomPageFragment extends BaseFragment implements GroomView,MyRecyc
         groomPagePresenter = new GroomPagePresenter(this);
         groomPagePresenter.getViedoData(MyUrl.VIDEO_NEW_URL);
         jiecao.setOnClickListener(this);
-        vitamio.setOnClickListener(this);
+
     }
 
     @Override
@@ -81,11 +80,7 @@ public class GroomPageFragment extends BaseFragment implements GroomView,MyRecyc
             case R.id.fragment_groom_jiecao:
                 Intent intent = new Intent(getContext(), JieCaoPlayerActivity.class);
                 startActivity(intent);
-            case R.id.fragment_groom_vitamio:
-//                Intent intent1=new Intent(getContext(), VatimaioActivity
-//
-//                        .class);
-//                startActivity(intent1);
+
         }
     }
 }
