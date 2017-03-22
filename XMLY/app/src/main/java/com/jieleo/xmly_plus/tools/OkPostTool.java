@@ -34,13 +34,15 @@ public class OkPostTool implements NetPostInterface{
     }
 
 
+
+
     @Override
-    public <T> void startPostRequest(String url, FormBody formBody, final Class<T> tClass, final CallBack callBack) {
+    public <T> void startPostRequest(String url, FormBody formBody, final Class<T> tClass, final CallBack<T> tCallBack) {
         Request request=new Request.Builder().url(url).post(formBody).build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                callBack.onError(e);
+                tCallBack.onError(e);
             }
 
             @Override
@@ -50,7 +52,7 @@ public class OkPostTool implements NetPostInterface{
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        callBack.onSuccess(result);
+                        tCallBack.onSuccess(result);
                     }
                 });
             }

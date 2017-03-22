@@ -8,5 +8,5 @@ import okhttp3.FormBody;
 
 
 public interface NetPostInterface {
-    <T> void startPostRequest(String url, FormBody formBody,Class<T> tClass,CallBack callBack);
+    <T> void startPostRequest(String url, FormBody formBody,Class<T> tClass,CallBack<T> tCallBack);
 }

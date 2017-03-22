@@ -27,8 +27,9 @@ public class NetPostTool implements NetPostInterface {
         mNetPostInterface=new NetPostTool();
     }
 
+
     @Override
-    public <T> void startPostRequest(String url, FormBody formBody, Class<T> tClass, CallBack callBack) {
-            mNetPostInterface.startPostRequest(url,formBody,tClass,callBack);
+    public <T> void startPostRequest(String url, FormBody formBody, Class<T> tClass, CallBack<T> tCallBack) {
+        mNetPostInterface.startPostRequest(url,formBody,tClass,tCallBack);
     }
 }
