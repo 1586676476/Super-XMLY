@@ -21,6 +21,7 @@ import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
 import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.activity.JuNengWanActivity;
 import com.jieleo.xmly_plus.activity.LoginActivity;
 
 import com.jieleo.xmly_plus.activity.WebActivity;
@@ -191,6 +192,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.tv_free_flux_fragment_user:
                 //免流量服务的点击事件
+                startActivity(new Intent(getActivity(), JuNengWanActivity.class));
                 break;
             case R.id.tv_more_fragment_user:
                 //更多的点击事件

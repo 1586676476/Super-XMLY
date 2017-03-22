@@ -24,7 +24,7 @@ public class NetPostTool implements NetPostInterface {
     }
 
     private NetPostTool() {
-        mNetPostInterface=new NetPostTool();
+        mNetPostInterface=new OkPostTool();
     }
 
 
