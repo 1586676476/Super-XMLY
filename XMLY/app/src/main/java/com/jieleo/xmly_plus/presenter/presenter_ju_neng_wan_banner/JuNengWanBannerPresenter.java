@@ -1,5 +1,6 @@
 package com.jieleo.xmly_plus.presenter.presenter_ju_neng_wan_banner;
 
+import com.jieleo.xmly_plus.model.bean.model_ju_neng_wan.IBannerListener;
 import com.jieleo.xmly_plus.model.bean.model_ju_neng_wan.JuNengWanBannerBean;
 import com.jieleo.xmly_plus.model.bean.model_ju_neng_wan.JuNengWanBannerModel;
 import com.jieleo.xmly_plus.tools.CallBack;
@@ -29,14 +30,14 @@ public class JuNengWanBannerPresenter {
 
     public void getBannerData(String url){
         FormBody formBody=new FormBody.Builder().add(key1,value1).add(key2, value2).build();
-        NetPostTool.getInstance().startPostRequest(url, formBody, JuNengWanBannerBean.class, new CallBack<JuNengWanBannerBean>() {
+        mJuNengWanBannerModel.getBannerData(url, new IBannerListener() {
             @Override
-            public void onSuccess(JuNengWanBannerBean response) {
-                mJuNengWanBannerView.getBanner(response);
+            public void onSuccess(JuNengWanBannerBean bean) {
+                mJuNengWanBannerView.getBanner(bean);
             }
 
             @Override
-            public void onError(Throwable throwable) {
+            public void onFailed(Throwable throwable) {
 
             }
         });
