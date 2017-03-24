@@ -1,8 +1,12 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,11 +15,14 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.fragment.DiscoverFragment;
 import com.jieleo.xmly_plus.fragment.HomeFragment;
 import com.jieleo.xmly_plus.fragment.MapFragment;
 import com.jieleo.xmly_plus.fragment.UserFragment;
+import com.jieleo.xmly_plus.service.PlayMusicService;
+import com.jieleo.xmly_plus.tools.SPUtils;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioButton homeRbtn, mapRbtn, discoverRbtn, personRbtn;
@@ -28,6 +35,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private FragmentTransaction fragmentTransaction;
     private ImageView playBtn;
 
+    //用于绑定服务的intent
+    private Intent mIntent;
+
+    private ServiceConnection mServiceConnection;
+    private PlayMusicService.MyBinder mBinder;
+
     @Override
     protected int bindLayout() {
         return R.layout.activity_main;
@@ -35,20 +48,29 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void initView() {
-//        homeRbtn = bindView(R.id.rd_btn_home);
-//        mapRbtn = bindView(R.id.rd_btn_map);
-//        discoverRbtn = bindView(R.id.rd_btn_discover);
-//        personRbtn = bindView(R.id.rd_btn_person);
         playBtn = (ImageView) findViewById(R.id.fa_btn_aty_main);
-
         mRadioGroup = bindView(R.id.rg_bottom_aty_main);
-
-
         homeFragment = new HomeFragment();
         mapFragment = new MapFragment();
         discoverFragment = new DiscoverFragment();
         mUserFragment = new UserFragment();
         fragmentManager = getSupportFragmentManager();
+
+        mIntent=new Intent(this, PlayMusicService.class);
+        mServiceConnection=new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                mBinder= (PlayMusicService.MyBinder) service;
+                SPUtils.put(MyApp.getContext(),"progress",0);
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+
+            }
+        };
+
+        bindService(mIntent,mServiceConnection, Service.BIND_AUTO_CREATE);
     }
 
     @Override
@@ -82,8 +104,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fa_btn_aty_main:
-                Intent intent=new Intent(this,PlayMusicActivity.class);
-                intent.putExtra("id",5890260);
+                Intent intent = new Intent(this, PlayMusicActivity.class);
+                intent.putExtra("id", 5890260);
                 startActivity(intent);
                 break;
         }
@@ -111,6 +133,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         fragmentTransaction.commit();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(mServiceConnection);
+    }
 }
 
 

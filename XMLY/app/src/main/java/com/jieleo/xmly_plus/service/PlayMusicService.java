@@ -13,7 +13,9 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.activity.LocalMusicBean;
+import com.jieleo.xmly_plus.tools.SPUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,10 +35,10 @@ public class PlayMusicService extends Service{
     private MediaPlayer mMediaPlayer;
 
     //声明记录是否第一次播放
-    private boolean mIsFirst;
+    private boolean mIsFirst=true;
 
     //播放模式   本地 or 网络
-    private boolean PlayMode;
+    private boolean PlayMode=false;
 
     //本地播放位置的变量
     private int index;
@@ -58,12 +60,23 @@ public class PlayMusicService extends Service{
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
+                if (PlayMode){
                 index++;
                 mMediaPlayer.reset();
                 mBinder.playLocal();
+                }else {
+                    index++;
+                    mMediaPlayer.reset();
+                    //TODO 播放网络
+                }
             }
         });
+        if (PlayMode){
+            //获取本地音乐
         getMusicData();
+        }else {
+            //获取网络音乐
+        }
 
 
     }
@@ -144,6 +157,9 @@ public class PlayMusicService extends Service{
 
 
 
+
+
+
     private String getAlbumArt(int Id) {
         String mUriAlbums = "content://media/external/audio/albums";
         String[] projection = new String[] { "album_art" };
@@ -207,8 +223,38 @@ public class PlayMusicService extends Service{
             playLocal();
         }
 
-        //是否正在播放
-        public boolean isPlaying(){
+
+       /**
+        * 播放网络音乐
+        * @return
+        */
+       public void playOnline(String url){
+           try {
+               mMediaPlayer.setDataSource(url);
+               mMediaPlayer.prepare();
+               mMediaPlayer.start();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+       }
+
+       public void playOnlineNext(String nextUrl){
+           mMediaPlayer.reset();
+           playOnline(nextUrl);
+       }
+
+       public void playOnlineLast(String lastUrl){
+           mMediaPlayer.reset();
+           playOnline(lastUrl);
+       }
+
+
+
+
+
+
+       //是否正在播放
+       public boolean isPlaying(){
             return mMediaPlayer.isPlaying();
         }
         //暂停
