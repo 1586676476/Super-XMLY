@@ -108,7 +108,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 fragmentTransaction.show(mUserFragment);
                 break;
         }
-        fragmentTransaction.commitAllowingStateLoss();
+        fragmentTransaction.commit();
     }
 
 }

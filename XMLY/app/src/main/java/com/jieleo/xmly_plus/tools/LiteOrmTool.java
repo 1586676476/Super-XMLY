@@ -40,7 +40,7 @@ public class LiteOrmTool {
         });
     }
     //删除某一条数据 content为输入某个字段 value为数据库中要查找的数据
-    public static <T> void delete(Class<T> tClass,String content,String[] value){
+    public static <T> void delete(Class<T> tClass,String content,String value){
         liteOrm.delete(tClass, WhereBuilder.create(tClass).where(content+"=?",value));
     }
     //删除所有的数据
@@ -60,7 +60,7 @@ public class LiteOrmTool {
         return liteOrm.query(tClass);
     }
     //查询某一条数据
-    public static <T> List<T> getQueryByWhere(Class<T> tClass,String content,String[] value){
+    public static <T> List<T> getQueryByWhere(Class<T> tClass,String content,String value){
         return liteOrm.<T>query(new QueryBuilder<T>(tClass).where(content+"=?",value));
     }
 }

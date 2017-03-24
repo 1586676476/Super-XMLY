@@ -2,9 +2,10 @@ package com.jieleo.xmly_plus.activity;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,12 +14,12 @@ import android.widget.RelativeLayout;
 import android.widget.RemoteViews;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.adapter.playmusic_adapter.PlayMusicRecommendRecyclerViewAdapter;
 import com.jieleo.xmly_plus.model.bean.model_play_music.PlayMusicBean;
 import com.jieleo.xmly_plus.presenter.playmusic.PlayMusicPresenter;
+import com.jieleo.xmly_plus.service.PlayMusicService;
 import com.jieleo.xmly_plus.tools.MyUrl;
 import com.jieleo.xmly_plus.view.IPlayMusicView;
 
@@ -94,6 +95,14 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView {
     ImageView mIvShareImmediatelyActivityPlayMusic;
 
     private int id;
+
+    private PlayMusicService.MyBinder mBinder;
+
+    //绑定服务用的Intent
+    private Intent mIntent;
+
+    private PlayMusicBroadCastReceiver   mBroadCastReceiver;
+
 
     private PlayMusicPresenter mPlayMusicPresenter;
     private PlayMusicRecommendRecyclerViewAdapter recmmendAdapter;
@@ -214,5 +223,14 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView {
 
 
 
+    }
+
+
+    class PlayMusicBroadCastReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+        }
     }
 }
