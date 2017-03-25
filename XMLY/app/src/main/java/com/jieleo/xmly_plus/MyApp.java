@@ -8,6 +8,7 @@ import android.os.Environment;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 
+import cn.jpush.android.api.JPushInterface;
 import cn.sharesdk.framework.ShareSDK;
 
 import cn.smssdk.SMSSDK;
@@ -25,7 +26,8 @@ public class MyApp extends Application {
         context = getApplicationContext();
         ShareSDK.initSDK(context);
         SpeechUtility.createUtility(this, SpeechConstant.APPID+"=58ca851b");
-
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(context);
     }
 
     @Override
