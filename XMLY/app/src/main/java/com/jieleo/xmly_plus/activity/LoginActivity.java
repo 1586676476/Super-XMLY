@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jieleo.xmly_plus.MyApp;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.jieleo.xmly_plus.R;
-import com.jieleo.xmly_plus.tools.SPUtils;
+import com.jieleo.xmly_plus.tools.User;
 
 import java.util.HashMap;
-import java.util.zip.Inflater;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -30,7 +30,7 @@ import cn.sharesdk.tencent.qq.QQ;
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
     private ImageView ivBack, ivQQ, ivSina;
-    private EditText usernameTv, passwordTv;
+    private EditText etUsername, etPassword;
     private Button loginBtn;
     private String account, token;
     private TextView mTextView;
@@ -47,8 +47,8 @@ public class LoginActivity extends BaseActivity {
             ivBack = (ImageView) findViewById(R.id.iv_back_login_activity);
             ivQQ = (ImageView) findViewById(R.id.iv_qq);
             ivSina = (ImageView) findViewById(R.id.iv_weibo);
-            usernameTv = bindView(R.id.et_user_name_aty_login);
-            passwordTv = bindView(R.id.et_password_aty_login);
+            etUsername = bindView(R.id.et_user_name_aty_login);
+            etPassword = bindView(R.id.et_password_aty_login);
             loginBtn = bindView(R.id.btn_login_aty_login);
             findViewById(R.id.tv_to_register_aty_login).setOnClickListener(this);
         }
@@ -173,16 +173,46 @@ public class LoginActivity extends BaseActivity {
 //weibo.removeAccount(true);
                     break;
                 case R.id.btn_login_aty_login:
+
+                    String userName= etUsername.getText().toString();
+                    String password = etPassword.getText().toString();
+                    EMClient.getInstance().login(userName,password,new EMCallBack() {//回调
+                        @Override
+                        public void onSuccess() {
+                            EMClient.getInstance().groupManager().loadAllGroups();
+                            EMClient.getInstance().chatManager().loadAllConversations();
+                            Log.d("main", "登录聊天服务器成功！");
+                            Intent intent = new Intent(LoginActivity.this,EMchatActivity.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onProgress(int progress, String status) {
+
+                        }
+
+                        @Override
+                        public void onError(int code, String message) {
+                            Log.d("main", "登录聊天服务器失败！");
+                        }
+                    });
+
+
+
+
+
                     break;
 
                 case R.id.tv_to_register_aty_login:
-                    Intent intent =new Intent(this,RegisterActivity.class);
-                    if (!usernameTv.getText().toString().isEmpty()){
-                        SPUtils.put(MyApp.getContext(),"phoneNum",usernameTv.getText().toString());
-                    }else {
-                    SPUtils.put(MyApp.getContext(),"phoneNum","");
-                    }
-                    startActivity(intent);
+//                    Intent intent =new Intent(this,RegisterActivity.class);
+//                    if (!usernameTv.getText().toString().isEmpty()){
+//                        SPUtils.put(MyApp.getContext(),"phoneNum",usernameTv.getText().toString());
+//                    }else {
+//                    SPUtils.put(MyApp.getContext(),"phoneNum","");
+//                    }
+//                    startActivity(intent);
+                    Intent intent = new Intent(this,EMRegisterActivity.class);
+                    startActivityForResult(intent,100);
                     break;
             }
         }
@@ -191,6 +221,19 @@ public class LoginActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mReciver);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==100&& resultCode ==100){
+            User user = data.getParcelableExtra("user");
+            if (!user.getName().isEmpty()&&!user.getPsd().isEmpty()){
+                etUsername.setText(user.getName());
+                etPassword.setText(user.getPsd());
+            }
+
+        }
     }
 
     class FinishBroadCastReciver extends BroadcastReceiver{

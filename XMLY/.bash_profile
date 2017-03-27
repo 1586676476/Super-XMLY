@@ -1,0 +1,1 @@
+export PATH=/Users//dllo/Desktop/study/Android-SDK-mac/platform-tools/:$PATH

@@ -18,6 +18,11 @@ public class BaseViewHolder extends RecyclerView.ViewHolder{
     private View view;
     private Context context;
     private SparseArray<View> viewSparseArray;
+
+    public View getView() {
+        return view;
+    }
+
     public BaseViewHolder(View itemView, Context context) {
         super(itemView);
         this.context = context;
