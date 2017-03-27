@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.google.gson.Gson;
+import com.jieleo.xmly_plus.model.bean.model_search_.SearchBean;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -89,5 +90,34 @@ public class OKTool implements NetInterface{
                     });
                 }
             });
+    }
+
+    @Override
+    public <T> void startRequest(String url, Class<T> tClass, final CallBackNew callBack) {
+        Request request = new Request.Builder().url(url).build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onError(e);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+                final SearchBean[] result = gson.fromJson(str,SearchBean[].class);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onSuccess(result);
+                    }
+                });
+            }
+        });
     }
 }

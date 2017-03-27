@@ -5,6 +5,8 @@ import com.jieleo.xmly_plus.model.bean.model_search_.SearchListener;
 import com.jieleo.xmly_plus.model.bean.model_search_.SearchModel;
 import com.jieleo.xmly_plus.view.view_search.SearchView;
 
+import java.util.List;
+
 /**
  * Created by dllo on 17/3/16.
  */
@@ -20,9 +22,11 @@ public class SearchPresenter {
 
     public void getSearch(String url){
         searchModel.getSearchData(url, new SearchListener() {
+
+
             @Override
-            public void getSearchOnSuccess(SearchBean searchBean) {
-                searchView.Success(searchBean);
+            public void getSearchOnSuccess(SearchBean[] searchBeanList) {
+                searchView.Success(searchBeanList);
             }
 
             @Override

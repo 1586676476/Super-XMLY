@@ -1,5 +1,6 @@
 package com.jieleo.xmly_plus.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.activity.SearchActivity;
 import com.jieleo.xmly_plus.adapter.HomeFragmentPageAdapter;
 import com.jieleo.xmly_plus.fragment.home.GroomPageFragment;
 import com.jieleo.xmly_plus.fragment.home.HotPageFragment;
@@ -83,6 +85,8 @@ public class HomeFragment extends BaseFragment implements TabView, View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_search_fragment_home:
+                Intent intent=new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tv_download_fragment_home:
                 break;

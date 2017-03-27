@@ -14,12 +14,11 @@ import com.jieleo.xmly_plus.tools.BaseViewHolder;
 
 public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private SearchBean searchBean;
+    private SearchBean[] searchBeanList;
     private Context context;
 
-    public void setSearchBean(SearchBean searchBean) {
-        this.searchBean = searchBean;
-        notifyDataSetChanged();
+    public void setSearchBeanList(SearchBean[] searchBeanList) {
+        this.searchBeanList = searchBeanList;
     }
 
     public SearchAdapter(Context context) {
@@ -35,11 +34,12 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
+        SearchBean searchBean = searchBeanList[position];
         holder.setText(R.id.activity_search_item_text,searchBean.getSearchWord());
     }
 
     @Override
     public int getItemCount() {
-        return searchBean!=null?37:0;
+        return searchBeanList == null ? 0 : searchBeanList.length;
     }
 }
