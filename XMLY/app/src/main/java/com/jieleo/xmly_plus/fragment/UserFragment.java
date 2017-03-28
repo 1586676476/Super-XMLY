@@ -131,6 +131,8 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 //录音的点击事件
                 break;
             case R.id.rl_main_live_fragment_user:
+//                mDialog=new RecognizerDialog(getActivity(),null);
+                Log.d("UserFragment", "mDialog:" + mDialog);
                 mDialog.setParameter(SpeechConstant.DOMAIN, "iat");
                 mDialog.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
                 mDialog.setParameter(SpeechConstant.ACCENT, "mandarin");

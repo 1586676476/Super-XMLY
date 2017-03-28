@@ -8,6 +8,24 @@
         android:name="com.jieleo.xmly_plus.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"/>
 
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <!-- 权限声明 -->
     <!-- 访问网络状态 -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -57,7 +75,10 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <!-- Required -->
     <uses-permission android:name="com.jieleo.xmly_plus.permission.JPUSH_MESSAGE"/>
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
@@ -103,6 +124,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <service android:name=".service.PlayMusicService"/>
+
+        <activity android:name=".activity.PlayMusicActivity"/>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".activity.RegisterActivity"/>
+
+        <activity android:name=".activity.EMRegisterActivity"/>
+        <activity android:name=".activity.EMchatActivity"/>
+        <activity android:name=".activity.AddFriendActivity"/>
+        <activity android:name=".activity.ApplayActivity"/>
+        <activity android:name=".activity.ChatActivity"/>
+
+
+        <activity android:name=".activity.JieCaoPlayerActivity"/>
 
         <service android:name=".service.PlayMusicService"/>
 
@@ -116,8 +152,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
         <intent-filter>
             <data android:scheme="tencent100371282"/>
@@ -144,6 +179,7 @@
         <service android:name="com.amap.api.location.APSService"/>
 
         <activity android:name=".activity.JuNengWanActivity">
+
         </activity>
 
         <service
@@ -158,6 +194,35 @@
             </intent-filter>
         </service>
 
+
+        <service android:name="com.amap.api.location.APSService"/>
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1123170316178593#flc1.0"/>
+        <!-- 声明SDK所需的service SDK核心功能-->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true"/>
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true">
@@ -165,58 +230,82 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
 
                 <category android:name="com.jieleo.xmly_plus"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+
+                <category android:name="com.jieleo.xmly_plus"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+
             </intent-filter>
             <!-- Optional -->
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED"/>
-                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
 
-                <data android:scheme="package"/>
-            </intent-filter>
-        </receiver>
+            <action android:name="android.intent.action.PACKAGE_ADDED"/>
+            <action android:name="android.intent.action.PACKAGE_REMOVED"/>
 
-        <activity
-            android:name="cn.jpush.android.ui.PushActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="false"
-            android:theme="@android:style/Theme.NoTitleBar">
-            <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity"/>
+            <data android:scheme="package"/>
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="com.jieleo.xmly_plus"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="cn.jpush.android.ui.PopWinActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="false"
-            android:theme="@style/MyDialogStyle">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="com.jieleo.xmly_plus"/>
-            </intent-filter>
-        </activity>
+            <action android:name="android.intent.action.PACKAGE_ADDED"/>
+            <action android:name="android.intent.action.PACKAGE_REMOVED"/>
 
-        <service
-            android:name="cn.jpush.android.service.DownloadService"
-            android:enabled="true"
-            android:exported="false">
-        </service>
+            <data android:scheme="package"/>
+        </intent-filter>
+    </receiver>
 
-        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+    <activity
+        android:name="cn.jpush.android.ui.PushActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:exported="false"
+        android:theme="@android:style/Theme.NoTitleBar">
+        <intent-filter>
+            <action android:name="cn.jpush.android.ui.PushActivity"/>
 
-        <meta-data
-            android:name="JPUSH_CHANNEL"
-            android:value="developer-default"/>
-        <meta-data
-            android:name="JPUSH_APPKEY"
-            android:value="dbaa98120a61f80c2c0068fb"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="com.jieleo.xmly_plus"/>
+
+            <action android:name="cn.jpush.android.ui.PushActivity"/>
+
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="com.jieleo.xmly_plus"/>
+        </intent-filter>
+    </activity>
+    <activity
+        android:name="cn.jpush.android.ui.PopWinActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:exported="false"
+        android:theme="@style/MyDialogStyle">
+        <intent-filter>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="com.jieleo.xmly_plus"/>
+        </intent-filter>
+    </activity>
+
+    <service
+        android:name="cn.jpush.android.service.DownloadService"
+        android:enabled="true"
+        android:exported="false">
+    </service>
+
+    <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+
+    <meta-data
+        android:name="JPUSH_CHANNEL"
+        android:value="developer-default"/>
+    <meta-data
+        android:name="JPUSH_APPKEY"
+        android:value="dbaa98120a61f80c2c0068fb"/>
+
+<receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+
+<meta-data
+android:name="JPUSH_CHANNEL"
+android:value="developer-default"/>
+<meta-data
+android:name="JPUSH_APPKEY"
+android:value="dbaa98120a61f80c2c0068fb"/>
 
     </application>
 
-</manifest>
+    </manifest>

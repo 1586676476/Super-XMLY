@@ -15,7 +15,7 @@ import java.util.List;
  * Created by jie on 2017/3/13.
  */
 
-public class PlayMusicRecommendRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class   PlayMusicRecommendRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private static final String TAG = "PlayMusicRecommendRecyc";
     private List<PlayMusicBean.AssociationAlbumsInfoBean> mBeen;
     private Context mContext;

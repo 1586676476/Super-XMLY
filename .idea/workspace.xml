@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="f6c72d90-3ef3-49b4-9ae9-1219df2fbab0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/arm64-v8a/libhyphenate.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/arm64-v8a/libhyphenate_av.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/arm64-v8a/libhyphenate_av_recorder.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/arm64-v8a/libsqlite.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/armeabi-v7a/libhyphenate.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/armeabi-v7a/libhyphenate_av.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/armeabi-v7a/libhyphenate_av_recorder.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/armeabi-v7a/libsqlite.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/hyphenatechat_3.3.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/x86/libhyphenate.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/x86/libhyphenate_av.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/x86/libhyphenate_av_recorder.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/libs/x86/libsqlite.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/AddFriendActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/ApplayActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/ChatActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/EMRegisterActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/EMchatActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/adapter/ApplyListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/adapter/ChatListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/adapter/EMchatVPadapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/adapter/FriendListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/adapter/search_adapter/ContactListAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/fragment/ContactFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/fragment/FriendFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/fragment/SetFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/tools/Friends.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/tools/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_add_friend.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_apply.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_chat.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_em_regist.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_friend.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/fragment_contact.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/fragment_friend.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/fragment_set.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/item_friend.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/item_list_apply.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/item_receive_chat.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/item_send_chat.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLY/app/build.gradle" afterPath="$PROJECT_DIR$/XMLY/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLY/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/XMLY/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/MyApp.java" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/MyApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/activity/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/tools/BaseViewHolder.java" afterPath="$PROJECT_DIR$/XMLY/app/src/main/java/com/jieleo/xmly_plus/tools/BaseViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/XMLY/app/src/main/res/layout/activity_login.xml" />
+    </list>
+=======
     <list default="true" id="f6c72d90-3ef3-49b4-9ae9-1219df2fbab0" name="Default" comment="" />
+>>>>>>> 78c17843aaa95de9c535b1e3a0356118c64dcec4
     <ignored path="Super-XMLY.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,10 +108,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="Scratches" />
+=======
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane />
       </pane>
+>>>>>>> 78c17843aaa95de9c535b1e3a0356118c64dcec4
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -82,7 +137,14 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+<<<<<<< HEAD
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+=======
       <pane id="Scratches" />
+>>>>>>> 78c17843aaa95de9c535b1e3a0356118c64dcec4
     </panes>
   </component>
   <component name="PropertiesComponent">
