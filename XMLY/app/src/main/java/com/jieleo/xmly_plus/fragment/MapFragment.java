@@ -74,6 +74,8 @@ public class MapFragment extends BaseFragment implements LocationSource, AMapLoc
 
     }
     private void location() {
+        Log.d(TAG, "lalalalal");
+
         //初始化定位
         mLocationClient = new AMapLocationClient(getContext().getApplicationContext());
         //设置定位回调监听
@@ -184,6 +186,11 @@ public class MapFragment extends BaseFragment implements LocationSource, AMapLoc
                         + aMapLocation.getErrorCode() + ", errInfo:"
                         + aMapLocation.getErrorInfo());
                // Toast.makeText(getContext().getApplicationContext(), "定位失败", Toast.LENGTH_LONG).show();
+              //  显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
+                Log.e("AmapError", "location Error, ErrCode:"
+                        + aMapLocation.getErrorCode() + ", errInfo:"
+                        + aMapLocation.getErrorInfo());
+                //Toast.makeText(getContext().getApplicationContext(), "定位失败", Toast.LENGTH_LONG).show();
             }
         }
     }

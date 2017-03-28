@@ -22,7 +22,7 @@ public class DemoRecyclerView extends RecyclerView{
         super(context, attrs, defStyle);
     }
 
-    @Override
+       @Override
     protected void onMeasure(int widthSpec, int heightSpec) {
         super.onMeasure(widthSpec, heightSpec);
         //重新绘制高度
