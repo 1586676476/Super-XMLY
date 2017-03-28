@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
+import com.jieleo.xmly_plus.tools.SPUtils;
 import com.jieleo.xmly_plus.tools.User;
 
 import java.util.HashMap;
@@ -205,8 +207,8 @@ public class LoginActivity extends BaseActivity {
 
                 case R.id.tv_to_register_aty_login:
 //                    Intent intent =new Intent(this,RegisterActivity.class);
-//                    if (!usernameTv.getText().toString().isEmpty()){
-//                        SPUtils.put(MyApp.getContext(),"phoneNum",usernameTv.getText().toString());
+//                    if (!etUsername.getText().toString().isEmpty()){
+//                        SPUtils.put(MyApp.getContext(),"phoneNum",etUsername.getText().toString());
 //                    }else {
 //                    SPUtils.put(MyApp.getContext(),"phoneNum","");
 //                    }

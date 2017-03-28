@@ -223,7 +223,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 mRemoteViews.setOnClickPendingIntent(R.id.iv_last_notification,lastPendingIntent);
 
 
-                mBuilder.setSmallIcon(R.mipmap.icon).setCustomContentView(mRemoteViews).setOngoing(true);
+                mBuilder.setSmallIcon(R.mipmap.icon).setContent(mRemoteViews).setOngoing(true);
                 mNotificationManager.notify(1, mBuilder.build());
             } else if (intent.getAction().equals("playNow")) {
                 if (mBinder.isPlaying()) {

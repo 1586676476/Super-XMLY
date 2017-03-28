@@ -29,7 +29,6 @@ public class LiteOrmTool {
             }
         });
     }
-
     //添加一个集合
     public static <T> void insertAll(final List<T> list){
         MyThreadPool.getThreadPoolExecutor().execute(new Runnable() {

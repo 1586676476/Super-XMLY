@@ -34,6 +34,7 @@ import java.util.zip.Inflater;
  */
 public class ContactFragment extends BaseFragment implements View.OnClickListener {
 
+    
     private static final String TAG = "ContactFragment";
     private List<String> mUsernames;
     private ListView mListView;

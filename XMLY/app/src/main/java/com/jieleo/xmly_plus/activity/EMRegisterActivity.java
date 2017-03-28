@@ -100,7 +100,7 @@ public class EMRegisterActivity extends BaseActivity {
 
                             } catch (HyphenateException e) {
                                 e.printStackTrace();
-                                Log.e(TAG, "run: "+e.getMessage() );
+                                Log.e(TAG, "run: "+e.getMessage()+e.getErrorCode());
                                 Message message = new Message();
                                 message.what=200;
                                 message.obj = e.getMessage();

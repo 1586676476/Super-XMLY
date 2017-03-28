@@ -137,7 +137,7 @@ public class PlayMusicService extends Service{
                         (cursor.getColumnIndex
                                 (MediaStore.Audio.Media.DURATION));
                 String Id=cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
-                Log.e(TAG, "getMusicData: "+"++++++++++++++++++++"+Id );
+//                Log.e(TAG, "getMusicData: "+"++++++++++++++++++++"+Id );
                 int id=Integer.valueOf(Id);
                 String albumArt=getAlbumArt(id);
                 if (isMusic != 0 && duringTime / 60 * 1000 > 1) {
@@ -170,7 +170,7 @@ public class PlayMusicService extends Service{
             album_art = cur.getString(0);
         }
         cur.close();
-        Log.e(TAG, "getAlbumArt: "+"__________-------"+album_art );
+//        Log.e(TAG, "getAlbumArt: "+"__________-------"+album_art );
         return album_art;
     }
    public class MyBinder extends Binder{
