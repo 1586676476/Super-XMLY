@@ -48,7 +48,7 @@ public class GroomPageFragment extends BaseFragment implements GroomView,MyRecyc
         recyclerView.setLayoutManager(new GridLayoutManager(MyApp.getContext(), 2, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(groomPageRvAdapter);
         groomPagePresenter = new GroomPagePresenter(this);
-        groomPagePresenter.getViedoData(MyUrl.VIDEO_NEW_URL);
+       // groomPagePresenter.getViedoData(MyUrl.VIDEO_NEW_URL);
         jiecao.setOnClickListener(this);
 
     }
