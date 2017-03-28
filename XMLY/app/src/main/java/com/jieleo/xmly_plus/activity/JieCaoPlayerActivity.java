@@ -23,7 +23,8 @@ public class JieCaoPlayerActivity extends BaseActivity {
     @Override
     protected void initView() {
         jcVideoPlayerStandard= (JCVideoPlayerStandard) findViewById(R.id.jiecao);
-        jcVideoPlayerStandard.setUp(url, JCVideoPlayer.SCREEN_LAYOUT_NORMAL,"喜马拉雅");
+        jcVideoPlayerStandard.setUp(url, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,"喜马拉雅");
+
 
     }
 
