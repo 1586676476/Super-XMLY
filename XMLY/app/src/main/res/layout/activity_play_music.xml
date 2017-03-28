@@ -12,6 +12,7 @@
             <ImageView
                 android:id="@+id/iv_bg_activity_play_music"
                 android:layout_width="match_parent"
+                android:scaleType="fitXY"
                 android:layout_height="300dp"/>
             <SeekBar
                 android:id="@+id/seek_bar_activity_play_music"
@@ -100,10 +101,10 @@
                     android:layout_marginTop="5dp"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ic_launcher"
-                    android:scaleType="center"
+                    android:scaleType="fitXY"
                     android:layout_marginLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
                 <TextView
                     android:id="@+id/tv_album_title_activity_play_music"
                     android:layout_width="wrap_content"

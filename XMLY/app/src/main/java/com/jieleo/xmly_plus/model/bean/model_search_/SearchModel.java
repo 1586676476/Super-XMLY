@@ -1,6 +1,7 @@
 package com.jieleo.xmly_plus.model.bean.model_search_;
 
 import com.jieleo.xmly_plus.tools.CallBack;
+import com.jieleo.xmly_plus.tools.CallBackNew;
 import com.jieleo.xmly_plus.tools.NetTool;
 
 /**
@@ -11,9 +12,10 @@ public class SearchModel implements Search{
 
     @Override
     public void getSearchData(String url, final SearchListener searchListener) {
-        NetTool.getInstance().startRequest(url, SearchBean.class, new CallBack<SearchBean>() {
+        NetTool.getInstance().startRequest(url, SearchBean[].class, new CallBackNew() {
+
             @Override
-            public void onSuccess(SearchBean response) {
+            public void onSuccess(SearchBean[] response) {
                 searchListener.getSearchOnSuccess(response);
             }
 

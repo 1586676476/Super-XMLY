@@ -29,7 +29,7 @@ public class SearchActivity extends BaseActivity implements SearchView {
     protected void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.activity_search_recycleView);
         searchAdapter = new SearchAdapter(this);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         recyclerView.setAdapter(searchAdapter);
         searchPresenter=new SearchPresenter(this);
         searchPresenter.getSearch(MyUrl.SEARCH);
@@ -50,9 +50,11 @@ public class SearchActivity extends BaseActivity implements SearchView {
 
     }
 
+
+
     @Override
-    public void Success(SearchBean searchBean) {
-        searchAdapter.setSearchBean(searchBean);
+    public void Success(SearchBean[] searchBeanList) {
+        searchAdapter.setSearchBeanList(searchBeanList);
     }
 
     @Override

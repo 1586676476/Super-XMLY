@@ -14,8 +14,12 @@ import com.hyphenate.chat.EMOptions;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 
+
 import java.util.Iterator;
 import java.util.List;
+
+
+import cn.jpush.android.api.JPushInterface;
 
 import cn.sharesdk.framework.ShareSDK;
 
@@ -34,7 +38,12 @@ public class MyApp extends Application {
         context = getApplicationContext();
         ShareSDK.initSDK(context);
         SpeechUtility.createUtility(this, SpeechConstant.APPID+"=58ca851b");
+
         initEasamob();
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(context);
+
     }
 
     @Override

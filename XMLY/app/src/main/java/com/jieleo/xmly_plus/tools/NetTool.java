@@ -32,4 +32,10 @@ public class NetTool implements NetInterface{
     public <T> void startRequest(String url, Class<T> tClass, CallBack<T> callBack) {
         mInterface.startRequest(url,tClass,callBack);
     }
+
+    @Override
+    public <T> void startRequest(String url, Class<T> tClass, CallBackNew callBack) {
+        mInterface.startRequest(url, tClass, callBack);
+    }
+
 }

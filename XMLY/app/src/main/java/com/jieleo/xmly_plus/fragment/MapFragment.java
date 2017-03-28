@@ -178,14 +178,12 @@ public class MapFragment extends BaseFragment implements LocationSource, AMapLoc
 //                    Toast.makeText(getContext().getApplicationContext(), buffer.toString(), Toast.LENGTH_LONG).show();
                     isFirstLoc = false;
                 }
-
-
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
-//                Log.e("AmapError", "location Error, ErrCode:"
-//                        + aMapLocation.getErrorCode() + ", errInfo:"
-//                        + aMapLocation.getErrorInfo());
-//                Toast.makeText(getContext().getApplicationContext(), "定位失败", Toast.LENGTH_LONG).show();
+               // Log.e("AmapError", "location Error, ErrCode:"
+                      //  + aMapLocation.getErrorCode() + ", errInfo:"
+                       // + aMapLocation.getErrorInfo());
+               // Toast.makeText(getContext().getApplicationContext(), "定位失败", Toast.LENGTH_LONG).show();
             }
         }
     }
