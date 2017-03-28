@@ -126,7 +126,7 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView, S
     private List<LocalMusicBean> mLocalMusicBeen;
     private boolean isAlive = true;
 
-    private boolean playMode=false;
+    private boolean playMode=true;
 
     private PlayOnlineMusicPresenter mOnlineMusicPresenter;
 
@@ -197,7 +197,9 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView, S
         //绑定服务
         bindService(mIntent, mServiceConnection, Service.BIND_AUTO_CREATE);
         //注册广播接收器
-        IntentFilter intentFilter = new IntentFilter("LocalMusic");
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("LocalMusic");
+        intentFilter.addAction("play");
         mBroadCastReceiver = new PlayMusicBroadCastReceiver();
         registerReceiver(mBroadCastReceiver, intentFilter);
 
@@ -245,6 +247,10 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView, S
                     SPUtils.put(MyApp.getContext(), "during", mBinder.getDuring());
                     mBinder.pause();
                     mIvPlayBtnActivityPlayMusic.setImageResource(R.drawable.activity_play_music_toolbar_play_btn_seclector);
+                    //通过广播发送状态和歌曲信息
+//                    Intent pauseIntent=new Intent("pause");
+//                    pauseIntent.putExtra("LocalMusic",mLocalMusicBeen.get(position));
+//                    sendBroadcast(pauseIntent);
                 } else {
                     if (playMode) {
                         //是否是第一次播放
@@ -253,11 +259,19 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView, S
                             mBinder.setFirst();
                             mIvPlayBtnActivityPlayMusic.setImageResource(R.mipmap.live_btn_pause);
                             mSeekBarActivityPlayMusic.setProgress((Integer) SPUtils.get(MyApp.getContext(), "progress", 0));
+                            //通过广播发送状态和歌曲信息
+//                            Intent playIntent=new Intent("play");
+//                            playIntent.putExtra("LocalMusic",mLocalMusicBeen.get(position));
+//                            sendBroadcast(playIntent);
                         } else {
                             //如果已经播放过 则继续播放
                             mBinder.coutinuePlay();
                             mIvPlayBtnActivityPlayMusic.setImageResource(R.mipmap.live_btn_pause);
                             mSeekBarActivityPlayMusic.setProgress((Integer) SPUtils.get(MyApp.getContext(), "progress", 0));
+                            //通过广播发送状态和歌曲信息
+//                            Intent continuePlay=new Intent("continuePlay");
+//                            continuePlay.putExtra("LocalMusic",mLocalMusicBeen.get(position));
+//                            sendBroadcast(continuePlay);
                         }
                     }else {
                         if (mBinder.isFirst()){
@@ -391,11 +405,19 @@ public class PlayMusicActivity extends BaseActivity implements IPlayMusicView, S
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("LocalMusic")){
             mLocalMusicBeen = intent.getParcelableArrayListExtra("LocalMusicBeen");//得到音乐数据
             position = intent.getIntExtra("index", 0);//当前播放歌曲的位置
             mIvSmallCoverActivityPlayMusic.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeFile(mLocalMusicBeen.get(position).getAlbumArt())));
             mIvBgActivityPlayMusic.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeFile(mLocalMusicBeen.get(position).getAlbumArt())));
             mTvAlbumTitleActivityPlayMusic.setText(mLocalMusicBeen.get(position).getSongName());
+            }else if (intent.getAction().equals("play")){
+                if (mBinder.isPlaying()){
+                    mIvPlayBtnActivityPlayMusic.setImageResource(R.mipmap.live_btn_pause);
+                }else {
+                    mIvPlayBtnActivityPlayMusic.setImageResource(R.mipmap.player_toolbar_play_normal);
+                }
+            }
         }
     }
 }

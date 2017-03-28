@@ -2,13 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jieleo.xmly_plus"
           android:versionCode="303"
-          android:versionName="3.0.3"
-    >
+          android:versionName="3.0.3">
 
     <permission
         android:name="com.jieleo.xmly_plus.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"/>
-
 
     <!-- 权限声明 -->
     <!-- 访问网络状态 -->
@@ -60,7 +58,6 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
-
     <!-- Required -->
     <uses-permission android:name="com.jieleo.xmly_plus.permission.JPUSH_MESSAGE"/>
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
@@ -106,6 +103,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <service android:name=".service.PlayMusicService"/>
 
         <activity android:name=".activity.PlayMusicActivity"/>
@@ -148,7 +146,6 @@
         <activity android:name=".activity.JuNengWanActivity">
         </activity>
 
-
         <service
             android:name="cn.jpush.android.service.PushService"
             android:enabled="true"
@@ -161,12 +158,12 @@
             </intent-filter>
         </service>
 
-
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+
                 <category android:name="com.jieleo.xmly_plus"/>
             </intent-filter>
             <intent-filter>
@@ -179,18 +176,19 @@
                 <action android:name="android.intent.action.PACKAGE_REMOVED"/>
 
                 <data android:scheme="package"/>
-
             </intent-filter>
         </receiver>
+
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:exported="false" >
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.jieleo.xmly_plus" />
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.jieleo.xmly_plus"/>
             </intent-filter>
         </activity>
         <activity
@@ -199,20 +197,26 @@
             android:exported="false"
             android:theme="@style/MyDialogStyle">
             <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.jieleo.xmly_plus" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.jieleo.xmly_plus"/>
             </intent-filter>
         </activity>
 
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false">
         </service>
 
-        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
-        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
-        <meta-data android:name="JPUSH_APPKEY" android:value="dbaa98120a61f80c2c0068fb"/>
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default"/>
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="dbaa98120a61f80c2c0068fb"/>
+
     </application>
 
 </manifest>

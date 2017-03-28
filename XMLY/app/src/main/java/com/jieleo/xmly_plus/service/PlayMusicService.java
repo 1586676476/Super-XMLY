@@ -38,7 +38,7 @@ public class PlayMusicService extends Service{
     private boolean mIsFirst=true;
 
     //播放模式   本地 or 网络
-    private boolean PlayMode=false;
+    private boolean PlayMode=true;
 
     //本地播放位置的变量
     private int index;
@@ -199,6 +199,9 @@ public class PlayMusicService extends Service{
             intent.putParcelableArrayListExtra("LocalMusicBeen", (ArrayList<? extends Parcelable>) mLocalMusicBeen);
             intent.putExtra("index",index);
             sendBroadcast(intent);
+            Intent playIntent=new Intent("play");
+            playIntent.putExtra("LocalMusic",mLocalMusicBeen.get(index));
+            sendBroadcast(playIntent);
         }
 
 
@@ -260,10 +263,16 @@ public class PlayMusicService extends Service{
         //暂停
         public void pause(){
             mMediaPlayer.pause();
+            Intent intent=new Intent("play");
+            intent.putExtra("LocalMusic",mLocalMusicBeen.get(index));
+            sendBroadcast(intent);
         }
 
         public void coutinuePlay(){
             mMediaPlayer.start();
+            Intent intent=new Intent("play");
+            intent.putExtra("LocalMusic",mLocalMusicBeen.get(index));
+            sendBroadcast(intent);
         }
 
         public boolean isFirst(){

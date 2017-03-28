@@ -1,5 +1,6 @@
 package com.jieleo.xmly_plus.activity;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -7,19 +8,24 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.IBinder;
 import android.provider.SyncStateContract;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RemoteViews;
 
+import com.jieleo.xmly_plus.Manifest;
 import com.jieleo.xmly_plus.MyApp;
 import com.jieleo.xmly_plus.R;
 import com.jieleo.xmly_plus.fragment.DiscoverFragment;
@@ -39,14 +45,21 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private ImageView playBtn;
+    private MyBroadcastReceiver mBroadcastReceiver;
+    private LocalMusicBean mLocalMusicBean;
 
     //用于绑定服务的intent
     private Intent mIntent;
 
+
+    private Notification.Builder mBuilder;
     private ServiceConnection mServiceConnection;
     private PlayMusicService.MyBinder mBinder;
-    private NotificationManager notificationManager;
-    private RemoteViews remoteViews;
+    private NotificationManager mNotificationManager;
+    private RemoteViews mRemoteViews;
+
+
+    private static final  int REQUEST_PERMISSION_CAMERA_CODE=1;
 
     @Override
     protected int bindLayout() {
@@ -63,12 +76,14 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         mUserFragment = new UserFragment();
         fragmentManager = getSupportFragmentManager();
 
-        mIntent=new Intent(this, PlayMusicService.class);
-        mServiceConnection=new ServiceConnection() {
+        mRemoteViews = new RemoteViews(getPackageName(), R.layout.item_play_music_notification);
+        mBuilder = new Notification.Builder(MainActivity.this);
+        mIntent = new Intent(this, PlayMusicService.class);
+        mServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                mBinder= (PlayMusicService.MyBinder) service;
-                SPUtils.put(MyApp.getContext(),"progress",0);
+                mBinder = (PlayMusicService.MyBinder) service;
+                SPUtils.put(MyApp.getContext(), "progress", 0);
             }
 
             @Override
@@ -77,12 +92,19 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             }
         };
 
-        bindService(mIntent,mServiceConnection, Service.BIND_AUTO_CREATE);
+        bindService(mIntent, mServiceConnection, Service.BIND_AUTO_CREATE);
 
         //初始化notification对象
-        notificationManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         //绑定notification布局
-        remoteViews=new RemoteViews(getPackageName(),R.layout.notification);
+//        remoteViews = new RemoteViews(getPackageName(), R.layout.notification);
+        mBroadcastReceiver = new MyBroadcastReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("play");
+        intentFilter.addAction("playNow");
+        intentFilter.addAction("lastNow");
+        intentFilter.addAction("nextNow");
+        registerReceiver(mBroadcastReceiver, intentFilter);
     }
 
     @Override
@@ -97,10 +119,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         fragmentTransaction.show(homeFragment);
 
         //设置notification的相关内容
-        NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
-        Intent intent=new Intent(this,PlayMusicActivity.class);
-        PendingIntent pendingIntent=PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteViews.setOnClickPendingIntent(R.id.notice,pendingIntent);
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+//        Intent intent = new Intent(this, PlayMusicActivity.class);
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        remoteViews.setOnClickPendingIntent(R.id.notice, pendingIntent);
 
 
     }
@@ -120,6 +142,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -130,6 +153,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
         }
     }
+
+
+
 
     // RadioGroup的监听
     @Override
@@ -158,6 +184,66 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     protected void onDestroy() {
         super.onDestroy();
         unbindService(mServiceConnection);
+    }
+
+
+
+    class MyBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("play")) {
+                mLocalMusicBean = intent.getParcelableExtra("LocalMusic");
+                Log.d("MyBroadcastReceiver", mLocalMusicBean.getAlbumArt());
+
+
+                mRemoteViews.setTextViewText(R.id.tv_song_name_notification, mLocalMusicBean.getSongName());
+                mRemoteViews.setTextViewText(R.id.tv_singer_name_nitification,mLocalMusicBean.getSingerName());
+
+
+                mRemoteViews.setImageViewBitmap(R.id.iv_notification,BitmapFactory.decodeFile(mLocalMusicBean.getAlbumArt()));
+                mRemoteViews.setImageViewResource(R.id.iv_last_notification,R.mipmap.player_toolbar_previous_pressed);
+                mRemoteViews.setImageViewResource(R.id.iv_next_notification,R.mipmap.player_toolbar_next_pressed);
+                if (mBinder.isPlaying()){
+                    mRemoteViews.setImageViewResource(R.id.iv_play_notification,R.mipmap.player_toolbar_pause_normal);
+                }else {
+                    mRemoteViews.setImageViewResource(R.id.iv_play_notification,R.mipmap.player_toolbar_play_normal);
+                }
+
+                Intent playIntent = new Intent("playNow");
+                PendingIntent playPendingIntent = PendingIntent.getBroadcast(MainActivity.this, 2, playIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                mRemoteViews.setOnClickPendingIntent(R.id.iv_play_notification, playPendingIntent);
+
+                Intent nextIntent=new Intent("nextNow");
+                PendingIntent nextPendingIntent=PendingIntent.getBroadcast(MainActivity.this,3,nextIntent,PendingIntent.FLAG_CANCEL_CURRENT);
+                mRemoteViews.setOnClickPendingIntent(R.id.iv_next_notification,nextPendingIntent);
+
+                Intent playLast =new Intent("lastNow");
+                PendingIntent lastPendingIntent=PendingIntent.getBroadcast(MainActivity.this,1,playLast,PendingIntent.FLAG_CANCEL_CURRENT);
+                mRemoteViews.setOnClickPendingIntent(R.id.iv_last_notification,lastPendingIntent);
+
+
+                mBuilder.setSmallIcon(R.mipmap.icon).setCustomContentView(mRemoteViews).setOngoing(true);
+                mNotificationManager.notify(1, mBuilder.build());
+            } else if (intent.getAction().equals("playNow")) {
+                if (mBinder.isPlaying()) {
+                    mBinder.pause();
+                } else {
+                    if (mBinder.isFirst()) {
+                        mBinder.playLocal();
+                    } else {
+                        mBinder.coutinuePlay();
+                    }
+
+                }
+            }else if (intent.getAction().equals("nextNow")){
+                mBinder.playNextMusic();
+            }else if (intent.getAction().equals("lastNow")){
+                mBinder.playLastMusic();
+            }
+
+
+        }
     }
 }
 

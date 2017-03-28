@@ -143,7 +143,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                         if (words.length()>=2){
                         String URL_PART_ONE = "https://www.baidu.com/s?wd=";
                         String URL_PART_TWO = "&rsv_spt=1&rsv_iqid=0xd973ffd5000c2260&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=5&rsv_sug1=3&rsv_sug7=100&rsv_t=21fd9Sc%2F726XvIzvOJk3ol%2FE2OhqJXusxWjpCh29zvKjK1Oj7TB7q4cMOQLRSZmXmHky&rsv_sug2=0&inputT=978&rsv_sug4=1542&rsv_sug=1";
-                        String url=URL_PART_ONE+words+URL_PART_TWO;
+                            String url=URL_PART_ONE+words+URL_PART_TWO;
                         Intent intent2=new Intent(getActivity(),WebActivity.class);
                         intent2.putExtra("url",url);
                         startActivity(intent2);

@@ -3,6 +3,7 @@ package com.jieleo.xmly_plus.tools;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.jieleo.xmly_plus.model.bean.model_search_.SearchBean;
